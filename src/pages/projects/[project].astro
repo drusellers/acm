@@ -1,0 +1,44 @@
+---
+import { getCollection, getEntry, render } from 'astro:content';
+import Layout from "../../layouts/Layout.astro";
+
+export async function getStaticPaths() {
+    const allProjects = await getCollection('projects')
+    return allProjects.map(p => ({params:{project:p.id}}))
+}
+
+const { project } = Astro.params
+
+const p = await getEntry('projects', project)
+
+if(p === undefined) {
+    return Astro.redirect('/404')
+}
+
+const { Content } = await render(p)
+---
+<Layout>
+    <div class="grid grid-cols-[1fr_2fr] gap-x-8">
+        <div class="flex flex-col gap-y-8">
+            <div>
+                <h1 class="text-2xl">{p.data.title}</h1>
+                <p class="text-sm max-w-64">{p.data.abstract}</p>
+            </div>
+
+            <div>
+                <h2 class="text-xl">Systems</h2>
+                {p.data.systems.map((t: string) => <div class="text-sm font-mono">{t}</div>)}
+            </div>
+
+            <div>
+                <h2 class="text-xl">Technologies</h2>
+                {p.data.technologies.map((t: string) => <div class="text-sm font-mono">{t}</div>)}
+            </div>
+
+        </div>
+        <div class="prose">
+            <Content />
+        </div>
+
+    </div>
+</Layout>

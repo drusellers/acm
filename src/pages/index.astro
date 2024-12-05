@@ -1,0 +1,17 @@
+---
+import Intro from "../components/Intro.astro";
+import Hero from "../components/HomePage/Hero.astro";
+import TechnicalJungle from "../components/HomePage/TechnicalJungle.astro";
+import Layout from "../layouts/Layout.astro";
+import ProjectBar from "../components/HomePage/ProjectBar.astro";
+---
+
+<Layout>
+	<!-- increase the breathing room -->
+	<div class="flex flex-col gap-y-16">
+		<Hero />
+		<ProjectBar />
+		<TechnicalJungle />
+		<Intro />
+	</div>
+</Layout>

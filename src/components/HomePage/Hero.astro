@@ -1,0 +1,36 @@
+---
+import { Content } from '../../content/hero.mdx'
+import { Image } from "astro:assets";
+import diagram from '../../assets/causal-loop-diagram.webp'
+---
+<div class="grid grid-cols-1 md:grid-cols-2 gap-y-8 gap-x-8">
+    <div class="flex flex-col gap-y-4 ">
+        <h1 class="text-6xl">Execute Technical Projects with Confidence</h1>
+        <h2 class="text-lg text-bright-600 max-w-96">
+            Helping companies build strategically integrated
+            systems for 20 years
+        </h2>
+        <div id="loop-container" class="hidden md:block">
+            <Image id="loop" src={diagram} alt="causal loop"/>
+        </div>
+    </div>
+    <div class="flex flex-col gap-y-4">
+        <div class="prose">
+            <Content />
+        </div>
+    </div>
+</div>
+<style>
+    /* skew the image to give it more depth */
+    #loop-container {
+        perspective: 1000px;
+        overflow: hidden;
+    }
+    #loop {
+        margin-top:-100px;
+        /* transform: skew(15deg, 15deg); */
+        transform: perspective(1000px) rotateX(60deg) rotateY(-10deg) skew(20deg, 10deg);
+        transform-origin: center;
+        margin-bottom: -70px;
+    }
+</style>

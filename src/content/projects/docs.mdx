@@ -1,0 +1,41 @@
+---
+title: Documentation
+abstract: |
+    Building out a modern documentation system using Full Text Search, and RAG
+
+systems:
+  - ChatGPT
+
+technologies:
+  - Astro
+---
+
+import Callout from '../../components/Callout.astro'
+
+It would not shock anyone to say that 2023-2025 were buzz years for Generative AI and LLMs. While helping many teams figure out their approach to LLM usage and ways to further their strategic goals I wanted to try those same tools on a knowledge base that I knew well, the [MassTransit](https://masstransit.io/) documentation.
+
+<Callout title={'MassTransit'} level={'info'}>
+    MassTransit is an open source project that I started with
+    Chris Patterson (PhatBoyG) 12 years ago to build a distributed
+    processing system in .NET.
+</Callout>
+
+| Basic Stats |                 |
+|-------------|-----------------|
+| Files       | 105             |
+| Search      | Algolia         |
+| Site        | Nuxt            |
+| Platform    | Vercel          |
+| Content     | Mostly Markdown |
+
+## Goals
+
+1. Provide a ChatGPT Integration that has a RAG Model, that boosts the current page the user is on
+1. Provide a custom Search Ingest to better control
+2. May restructure the docs since its been a few years of "weeds"
+
+
+## Requirements
+
+1. Content must stay in Markdown
+2. Content must stay in GitHub SCM
