@@ -2,6 +2,7 @@
 import { Content } from '../../content/hero.mdx'
 import { Image } from "astro:assets";
 import diagram from '../../assets/causal-loop-diagram.webp'
+
 ---
 <div class="grid grid-cols-1 md:grid-cols-2 gap-y-8 gap-x-8">
     <div class="flex flex-col gap-y-4 ">
@@ -11,7 +12,7 @@ import diagram from '../../assets/causal-loop-diagram.webp'
             systems for 20 years
         </h2>
         <div id="loop-container" class="hidden md:block">
-            <Image id="loop" src={diagram} alt="causal loop"/>
+            <Image id="loop" src={diagram} alt="causal loop" />
         </div>
     </div>
     <div class="flex flex-col gap-y-4">
