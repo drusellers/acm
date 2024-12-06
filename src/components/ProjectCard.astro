@@ -7,9 +7,9 @@ interface Props {
 
 const { project } = Astro.props;
 ---
-<div class="rounded bg-bright-100 px-4 pt-4 pb-6">
+<div class="rounded bg-bright-100 dark:bg-dim-900 px-4 pt-4 pb-6">
     <a href={`/projects/${project.id}`}>
-        <div class="font-bold text-blue-800">{project.data.title}</div>
+        <div class="font-bold text-blue-800 dark:text-blue-400">{project.data.title}</div>
         <div class="text-sm">{project.data.abstract}</div>
     </a>
 </div>

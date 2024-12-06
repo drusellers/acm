@@ -12,16 +12,54 @@ systems:
 
 technologies:
   - dotnet
+  - MAUI
   - node
   - postgres
+  - QR code scanner
+
+diagram: |
+    graph LR
+        UI --- API
+        Scanner --- Desktop --- API
+        API --- ERP
 ---
 
-This project was to build a streamlined front end for the company's ERP system that would enable retail sales staff to quickly create quotes for customers. The goal was to make Sales Reps more efficient by not having to work through a clunky and antiquated ERP system.
+import Mermaid from '../../components/Mermaid.astro'
+import Goals from '../../components/Projects/Goals.astro'
+
+Like many retail stores, this customer wanted to achieve two things.
+
+<Goals goals={['Identify Anonymous Customers for further marketing efforts',
+    'Increase the efficiency of their Sales Staff']} />
+
+## Problem
+
+The current ERP requires a customer before generating a quote. This means that a customer that is just browsing would
+have to commit to giving you a lot of personal information, if all they want is a list of items that they
+were interested in.
+
+## Solution
+
+We built an application that leveraged our existing API from a previous project, to capture a light weight
+"quote" which was like an Amazon Wishlist. The user could walk around the store scanning products and
+before leaving could have it printed out. We also offered the option to email the customer a PDF, which would
+then get that customer into the company's CDP (Customer Data Platform).
+
+With the shopping intent captured, a customer could come back with the "quote" number, and we could pick back
+up on the shopping trip. If the customer, had it emailed to them, then we could look it up by email
+address too.
 
 A unique feature of this system was that it leveraged a physical scanning device like you might have used during a gift registry trip. A customer could walk around, anonymous and build a shopping cart of sorts. They could then get a print out of the items they scanned, and if they so wanted it could be emailed to this. Capturing this email was a key goal, which helped retail stores track customer behavior.
 
-If the email address was a known email address, the customer could then take that order and checkout at a later time. There were also future goals of creating a universal cart that would let you shop in store, and checkout on the web later.
+<Mermaid content={frontmatter.diagram} />
 
-Towards the end of my engagement on the project, we were even successful in executing a zero downtime migration to the company's new ERP system, maintaining quotes, customers, and other reference data.
+If the email address was a known email address, the customer could then take that order and
+checkout at a later time. There were also future goals of creating a universal cart that would
+let you shop in store, and checkout on the web later.
 
-This project was a fun challenge because it blended together mulitple business systems including ERPs, E-Commerce systems, and marketing tools.
+Towards the end of my engagement on the project, we were even successful in executing a zero
+downtime migration to the company's new ERP system, maintaining quotes, customers, and other
+reference data.
+
+This project was a fun challenge because it blended together mulitple business systems including
+ERPs, E-Commerce systems, and marketing tools.

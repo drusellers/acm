@@ -1,12 +1,18 @@
 ---
-import mermaid from 'mermaid'
-mermaid.initialize({})
+interface Props {
+    content: string
+}
+const { content } = Astro.props
 ---
-<div>
+
+<div class="not-prose">
     <pre class="mermaid">
-    graph LR
-        A --- B
-        B-->C
-        B-->D
+    {content}
     </pre>
 </div>
+<script>
+    import mermaid from 'mermaid'
+    mermaid.initialize({
+        theme: 'base',
+    });
+</script>

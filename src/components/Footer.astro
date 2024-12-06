@@ -3,7 +3,7 @@
 const year = new Date().getFullYear();
 ---
 <!-- the margin and padding give us some breathing room -->
-<footer class="grid grid-cols-3 mt-8 pb-8">
+<footer class="grid grid-cols-1 md:grid-cols-3 mt-8 pb-8">
     <div class="flex flex-col xl:flex-row xl:gap-x-2">
         <div class="text-bright-400">
             &copy; {year} A Curious Mind, LLC.
@@ -16,6 +16,7 @@ const year = new Date().getFullYear();
     <div class="text-bright-400 flex justify-center">
         <a href="/privacy">Privacy</a>
     </div>
+
     <div class="text-bright-400 flex gap-x-4 justify-end">
         <div>
             <a href="https://bsky.app/profile/drusellers.com" target="_blank" >

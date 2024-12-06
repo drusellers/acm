@@ -37,6 +37,9 @@ export function ChoicesO() {
 
 export default function Choices() {
     return <div className="grid grid-cols-4 gap-2">
-        {choices.map(c => <div key={c} className={'flex items-center justify-center text-xs border rounded border-bright-200 bg-white font-mono px-4 py-2 hover:bg-blue-100'}>{c}</div>)}
+        {choices.map(c => {
+            return <div key={c}
+                        className={'flex items-center justify-center text-xs rounded  bg-white dark:bg-dim-800 font-mono px-4 py-2 hover:bg-blue-100'}>{c}</div>
+        })}
     </div>
 }

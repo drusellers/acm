@@ -1,0 +1,14 @@
+---
+import { Image } from "astro:assets";
+import seriousDru from "../../assets/009.jpg";
+import { Content } from "../../content/intro.md";
+---
+<!-- a two column component -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-y-8 gap-x-8">
+    <div>
+        <!-- need an updated version of this -->
+        <!-- sepia black background -->
+        <Image src={seriousDru} alt="A very serious Dru" class="rounded" />
+    </div>
+    <div class="prose dark:prose-invert"><Content /></div>
+</div>
