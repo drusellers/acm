@@ -1,16 +1,28 @@
 ---
-import { Content } from '../../content/hero.mdx'
+import { Content } from './hero.mdx'
 import { Image } from "astro:assets";
 import diagram from '../../assets/causal-loop-diagram.webp'
-
 ---
 <div class="grid grid-cols-1 md:grid-cols-2 gap-y-8 gap-x-8">
     <div class="flex flex-col gap-y-4 ">
-        <h1 class="text-4xl md:text-6xl dark:text-dim-300">Execute Technical Projects with Confidence</h1>
+        <h1 class="text-4xl md:text-6xl dark:text-dim-300">
+            Your Digital
+            <abbr>
+                GC
+                <span class="bg-blue-100 rounded text-base shadow font-normal">and I don't mean Garbage Collection</span>
+            </abbr>
+        </h1>
+
+
+
         <h2 class="text-lg text-bright-600 max-w-96 dark:text-dim-500">
-            Helping companies build strategically integrated
-            systems for 20 years
+            Your cross-functional developer, that can help you understand your entire
+            stack of software, and how they connect to each business
+            process across: Sales, Finance, Marketing, Design and Support.
         </h2>
+        <div class="bg-gray-100 h-[100px]">
+         front elevation of a house or business building
+        </div>
         <!--<div id="loop-container" class="hidden md:block">-->
         <!--    <Image id="loop" src={diagram} alt="causal loop" />-->
         <!--</div>-->
@@ -34,4 +46,30 @@ import diagram from '../../assets/causal-loop-diagram.webp'
         transform-origin: center;
         margin-bottom: -70px;
     }
+
+
+    abbr {
+        text-decoration: underline dotted;
+        anchor-name: --abbr;
+
+        &:hover {
+            & span {
+                display: block;
+
+            }
+        }
+
+        & span {
+            display: none;
+            margin: 0;
+            inset: auto;
+            padding: 0.5rem;
+
+            position: absolute;
+            position-anchor: --abbr;
+            top: anchor(bottom);
+            left: anchor(left)
+        }
+    }
+
 </style>

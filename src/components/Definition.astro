@@ -1,0 +1,12 @@
+---
+interface Props {
+    term: string
+}
+
+const { term } = Astro.props
+---
+
+<div class="flex flex-row">
+    <div>{term}</div>
+    <div><slot /></div>
+</div>
