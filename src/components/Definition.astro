@@ -1,12 +1,13 @@
 ---
 interface Props {
     term: string
+    definition: string
 }
 
-const { term } = Astro.props
+const { term, definition } = Astro.props
 ---
 
-<div class="flex flex-row">
-    <div>{term}</div>
-    <div><slot /></div>
+<div class="flex flex-row gap-x-2">
+    <div class="italic decoration-dotted underline text-lg">{term}</div>
+    <div class="text-gray-500">{definition}</div>
 </div>
