@@ -1,5 +1,5 @@
 ---
-import { Content } from './hero.mdx'
+import { Content, frontmatter } from './hero.mdx'
 import { Image } from "astro:assets";
 import diagram from '../../assets/causal-loop-diagram.webp'
 ---
@@ -15,12 +15,10 @@ import diagram from '../../assets/causal-loop-diagram.webp'
 
 
 
-        <h2 class="text-lg text-bright-600 max-w-96 dark:text-dim-500">
-            Your cross-functional developer, that can help you understand your entire
-            stack of software, and how they connect to each business
-            process across: Sales, Finance, Marketing, Design and Support.
-        </h2>
-        <div class="bg-gray-100 h-[100px]">
+        <p class="text-bright-600 max-w-96 dark:text-dim-500">
+            {frontmatter.summary}
+        </p>
+        <div class="bg-gray-100 h-[100px] rounded-bl-lg rounded-lg">
          front elevation of a house or business building
         </div>
         <!--<div id="loop-container" class="hidden md:block">-->
@@ -28,9 +26,13 @@ import diagram from '../../assets/causal-loop-diagram.webp'
         <!--</div>-->
     </div>
     <div class="flex flex-col gap-y-4">
-        <div class="prose dark:prose-invert">
-            <Content />
-        </div>
+            <h2 class="text-4xl">A Helping Hand</h2>
+            <p>
+                I’ve spent a career studying software development practices, along with the how and why of businesses. This hybrid approach has given me a unique insight into how businesses operate, and where efficiencies can be gained.
+            </p>
+            <p>
+                My superpower has been my ability to explain modern technology in simple terms that you and your team can understand — allowing you to make effective decisions, and avoid the inevitable bike shedding.
+            </p>
     </div>
 </div>
 <style>

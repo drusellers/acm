@@ -1,0 +1,15 @@
+---
+interface Props {
+  comment: string
+  name: string
+}
+
+const {comment, name} = Astro.props
+---
+
+<blockquote class="flex flex-col">
+    <div class="not-italic">
+      {comment}
+    </div>
+    <cite>{name}</cite>
+</blockquote>

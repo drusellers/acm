@@ -1,7 +1,7 @@
 ---
 title: Platform Automation
 abstract: |
-    Building out a modern documentation system using Full Text Search, and RAG
+    Build and deploy a system to automate the existing manual process for provisioning cloud resources.
 
 systems:
   - AWS
@@ -26,62 +26,59 @@ diagram2: |
 
 diagram3: |
     graph LR
-        ConfigStore --- Depot
-        Registry --- Depot
-        UserRequest --- Depot
-        Depot --- AWS
-        Depot --- GCP
-        Depot --- Azure
+        U[User Request] ---- System
+        Cd[Config Data] --- System
+        R[Packages] --- System
+        System --- AWS
+        System --- GCP
+        System --- Azure
         AWS --- Agent
         GCP --- Agent
         Azure --- Agent
 ---
 
 import Mermaid from '../../components/Mermaid.astro'
-import Goals from '../../components/Projects/Goals.astro'
+import Outcomes from '../../components/Projects/Outcomes.astro'
 
 # Automating Drudgery
 
-<Goals goals={[
-    'Automate the manual system for provisioning new cloud resources',
-    'Reduce response time'
+<Outcomes outcomes={[
+    'Automated manual system for provisioning new cloud resources',
+    'Time to deployment was reduced from 24 hrs to 5 minutes'
     ]} />
-
-## Outcomes
-
-- Process moved from a manual process to an automated system
-- Time to deployment was reduced from 24 hrs to 5 minutes
 
 ## Overview
 
-Build and deploy a system to automated a manual process for provisioning cloud resources using a secure approach. Built on top of an existing abstraction, that was extended to achieve new capabilities.
+Built and deployed a system to automate the process of provisioning
+cloud resources based on customer requests.
 
+<Mermaid content={frontmatter.diagram3} />
 
-This was a full stack system. Not only did this system support connecting to a customer's private cloud, but would spin up servers, included a concept of bootstrapping servers, running and installing software of multiple variations.
+## Processes
 
-## Sub-systems
-
+This was a full stack system. Not only did this system support connecting to a
+customer's private cloud, but would spin up servers, included a concept of
+bootstrapping servers, running and installing software of multiple variations.
 
 - package deployment (shipit -> depo)
 - package and release tracking
 - network creation and deployment
-- load balancer management
 - multi-cloud
 - local daemon to pull updates (depot-agent)
 - local cli to automate remote http actions
 - fault tolerent
-- white labeled DNS
 - instance abstraction
 - bootstrapping
 - configuration data (by environment)
-
-## Processes
+- cloud
+  - load balancer management
+  - white labeled DNS
 
 ### Releasing new Code
 
 <Mermaid content={frontmatter.diagram1} />
 
-- software packaging and a repository (shipit format)
+- software packaging and a repository (in-house format)
 
 ### Configuration Data
 
@@ -89,7 +86,6 @@ This was a full stack system. Not only did this system support connecting to a c
 
 Alternatives would have been etcd, counsul, cloud native options like Azure Key Vault, AWS SSM Parameter Store. We wanted something that was multi-cloud, and wouldn't require a cloud specific security credential.
 
-### Putting it all together
 
-<Mermaid content={frontmatter.diagram3} />
+
 

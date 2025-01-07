@@ -15,41 +15,42 @@ technologies:
   - touch screen
 ---
 
-On this project I came into an existing system, and did a few notable things.
+import Outcomes from '../../components/Projects/Outcomes.astro'
+import PullQuote from '../../components/Projects/PullQuote.astro'
+import Term from '../../components/Term.astro'
 
-- Standardized the node Promise calls
-- Reduced start time from 3 hrs to 3 sec
-- Enabled true to size pictures with a 1/2" tolerance
+# Digital Signage
 
-> Pull Quote
+<Outcomes outcomes={[
+    'Stabilized system using existing technology stack',
+    'Enable true to size pictures with a 1/4" tolerance on in-store signage'
+]} />
+
+<PullQuote comment={"Dru was able to come in and immediately be productive."} name="Tim Barcz" />
 
 
-## Setup
+## Overview
 
-This company was struggling to stabilize their digital signage solution. This solution was deployed in over forty stores, and employees had stopped using the system due to the amount of bugs and long reboot cycles. The company had invested in two 55" touch screens and one 98" screen in all of their stores. The screens had prominent placement in store, and to have them not function equated to large waste.
+An existing digital signage solution was experiencing long outages, and
+and multiple bugs. This application is prominantely displayed in stores
+on screens ranging from 55" to 98" in size.
 
-## Phase One
+## Process
 
-Once I was given access to the source code, I started to hunt down the problem. The issue ended up being centered on a common JavaScript issue where a member's name had changed and was causing an issue in a recursive function. Because it was in this function, the issue wasn't immediately apparent.
+The real work for this project was to stabalize the application. So that it would work
+reliably. Once I was given access to the source code, I started to hunt down the problem. The issue ended up being centered on a common JavaScript issue where a member's name had changed and was causing an issue in a recursive function. Because it was in this function, the issue wasn't immediately apparent.
 
-With the goal in mind, I upgraded the system to Node 18 and established an upgraded Docker image, and installed `nvm` to manage the version being used during development. Now that a modern version of node was being used, I unwound the old Promise chaining and function recursion and instead used common `for` loops and `async`/`await`. This change made the code easier for the other team members to work on.
 
 > [!INFO]
 > Another team had tried to take over the project but stated that it needed to be completely re-written in order to achieve the goals of stability and modernization. As some one who loves a good brownfield application, I was hired to do those things without the immediate re-write.
 
+This was an older system that had been through three different "generations" of
+JavaScript / Node - after stabilizing the current iteration of the application, I worked
+on bringing the code base "up-to-code". Overtime, systems will experience bit-rot as
+technology marches on. By deliberately targeting each change I was able to modernize the
+code base while reacting to new bugs identified by the applications increased usage.
 
-## Phase Two
-
-Being a developer that appreciates a type system, the next step was to convert the application from JavaScript to TypeScript. Doing this lead me to resolve more issues in the application by having the type system show me where the errors were happening. This explained why some areas looked correct, but weren't due to the wrong item being passed around.
-
-## Phase Three
-
-Now that I had a good understanding of the application, we wanted to take a look at why the application was taking over three hours to boot up. This ended up being that the application would do a full sync of product data in an "init container" like process, and that process would take 3 hours anytime the system rebooted. During this process the app was unavailable and the screen would be a white blank during this time. I moved that process to happen in parrallel since most time the data was already available.
-
-## Phase Four
-
-With the code now stabilized on Node 18 (up from like node 7), with async/await vs promise chaining the next step was to figure out why the application felt slow and sluggish. This application was running on touch screen TV’s that were running windows. The application and its database was running inside of Docker on Windows. We also found that the database (Membase) was using almost 2GB of data. Given that the team of developers at the company were not familiary with a document database, and were more accustomed to a Relational DB, we moved off of 2-3 collections of objects in couch based on to 4 tables in postgres. The Postgres database also being delivered via Docker used approx 200mb of ram (confirm this) which gave the Displays siginificant more RAM to do the silly windows things with.
-
-## Phase Five
-
-The next issue became a conflict with pricing data being off because the sync process took a long time on the desktop hardware and had to be replicated across 50+ monitors. So rather than deploying the application on each TV, we moved the application
+- Moved on to LTS version of Node
+- Updated NPM packages
+- Standardized on `async`/`await` rather than a convoluted nest of `for` loops with recursive functions
+- Slowly converting each file to TypeScript, as new bugs were found

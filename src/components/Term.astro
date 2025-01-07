@@ -1,0 +1,40 @@
+---
+interface Props {
+  term: string
+  definition: string
+}
+
+const { term, definition } = Astro.props
+---
+<abbr>
+  {term}
+    <span class="bg-blue-100 rounded text-base shadow font-normal">
+        {definition}
+    </span>
+</abbr>
+
+<style>
+    abbr {
+        text-decoration: underline dotted;
+        anchor-name: --abbr;
+
+        &:hover {
+            & span {
+                display: block;
+
+            }
+        }
+
+        & span {
+            display: none;
+            margin: 0;
+            inset: auto;
+            padding: 0.5rem;
+
+            position: absolute;
+            position-anchor: --abbr;
+            top: anchor(bottom);
+            left: anchor(left)
+        }
+    }
+</style>

@@ -25,14 +25,14 @@ diagram: |
 ---
 
 import Mermaid from '../../components/Mermaid.astro'
-import Goals from '../../components/Projects/Goals.astro'
+import Outcomes from '../../components/Projects/Outcomes.astro'
 
-Like many retail stores, this customer wanted to achieve two things.
+# Custom Retail ERP Front End
 
-<Goals goals={['Identify Anonymous Customers for further marketing efforts',
+<Outcomes outcomes={['Identify Anonymous Customers for further marketing efforts',
     'Increase the efficiency of their Sales Staff']} />
 
-## Problem
+## Overview
 
 The current ERP requires a customer before generating a quote. This means that a customer that is just browsing would
 have to commit to giving you a lot of personal information, if all they want is a list of items that they
@@ -40,16 +40,21 @@ were interested in.
 
 ## Solution
 
-We built an application that leveraged our existing API from a previous project, to capture a light weight
-"quote" which was like an Amazon Wishlist. The user could walk around the store scanning products and
-before leaving could have it printed out. We also offered the option to email the customer a PDF, which would
-then get that customer into the company's CDP (Customer Data Platform).
+We built an application that leveraged our existing API from a previous project, to capture a
+light weight "quote" which was like an Amazon Wishlist. The user could walk around the
+store scanning products and before leaving could have it printed out. We also offered
+the option to email the customer a PDF, which would then get that customer into the
+company's <abbr title="Customer Data Platform">CDP</abbr>.
 
-With the shopping intent captured, a customer could come back with the "quote" number, and we could pick back
-up on the shopping trip. If the customer, had it emailed to them, then we could look it up by email
-address too.
+With the shopping intent captured, a customer could come back with the "quote" number,
+and we could pick back up on the shopping trip. If the customer, had it emailed to them,
+then we could look it up by email address too.
 
-A unique feature of this system was that it leveraged a physical scanning device like you might have used during a gift registry trip. A customer could walk around, anonymous and build a shopping cart of sorts. They could then get a print out of the items they scanned, and if they so wanted it could be emailed to this. Capturing this email was a key goal, which helped retail stores track customer behavior.
+A unique feature of this system was that it leveraged a physical scanning device
+like you might have used during a gift registry trip. A customer could walk around,
+anonymous and build a shopping cart of sorts. They could then get a print out of the
+items they scanned, and if they so wanted it could be emailed to this. Capturing this
+email was a key goal, which helped retail stores track customer behavior.
 
 <Mermaid content={frontmatter.diagram} />
 
