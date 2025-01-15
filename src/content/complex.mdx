@@ -1,4 +1,5 @@
 import Definition from '../components/Definition.astro'
+import ProjectCard from '../components/Projects/ProjectCard.astro'
 
 # We build complex systems
 
@@ -6,12 +7,14 @@ A modern business process requires complex systems, but they needn't be complica
 
 <Definition term="Complex" definition={'A system that is composed of mulitple other systems'} />
 
-<Definition term="Complicated" definition={'consisting of many interconnecting parts or elements; intricate'} />
+<Definition term="Complicated" definition={'Consisting of many interconnecting parts or elements; intricate'} />
 
 A complex system is nothing more than two or more simple systems working together. As a business we
 work with our co-workers, that makes any business that we build a complex system.
 
-The real mess is when these systems have inter-dependencies. When we don't understand how
+<ProjectCard projectKey={'depot'} />
+
+The real mess is when these systems have interdependencies. When we don't understand how
 one influences the other. In IT systems this can come from a lack of business understanding, or
 not taking the time to dig deep and to understand why things are they way they are. Sometimes it
 happens because its simply easier to add another layer of dirt on top of the mess, than it is to

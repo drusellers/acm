@@ -18,7 +18,8 @@ const projects = defineCollection({
         title: z.string(),
         abstract: z.string(),
         systems: z.array(z.string()),
-        technologies: z.array(z.string())
+        technologies: z.array(z.string()),
+        tease: z.string(),
     })
 });
 

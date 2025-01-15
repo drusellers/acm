@@ -7,7 +7,7 @@ interface Props {
 const { term, definition } = Astro.props
 ---
 
-<div class="flex flex-row gap-x-2">
-    <div class="italic decoration-dotted underline text-lg">{term}</div>
-    <div class="text-gray-500">{definition}</div>
+<div class="flex flex-col gap-y-2 py-4 pl-8">
+    <div class="italic text-lg font-serif">{term}</div>
+    <div class="text-gray-500 pl-8">{definition}</div>
 </div>

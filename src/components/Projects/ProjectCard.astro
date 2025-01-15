@@ -1,0 +1,24 @@
+---
+import { getEntry } from 'astro:content';
+
+interface Props {
+  projectKey: string
+}
+
+const props = Astro.props
+
+const p = (await getEntry('projects', props.projectKey))!
+
+---
+<div class="bg-gray-100 rounded px-4 py-2 flex flex-col gap-y-2">
+  <div class="italic">
+    {p.data.tease}
+  </div>
+  <div class="flex justify-between">
+      <div class="text-xs text-gray-500">
+          <a href={`/projects/${props.projectKey}`}>
+              More from {p.data.title}...
+          </a>
+      </div>
+  </div>
+</div>
