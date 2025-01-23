@@ -15,8 +15,8 @@ export default {
 			},
 			colors: {
 				// background colors for light mode
-				// warmer than zinc
-				bright: colors.stone,
+				// a blue tinted gray
+				bright: colors.slate,
 				// background colors for dark mode
 				// cooler than stone
 				dim: colors.zinc,

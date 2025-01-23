@@ -1,0 +1,75 @@
+---
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import '@fontsource-variable/outfit';
+import '@fontsource-variable/open-sans'
+
+interface Props {
+  seo?: {
+    title: string
+    description?: string
+    image?: string
+  }
+}
+
+const props = Astro.props
+
+let title = 'A Curious Mind'
+if(props.seo) {
+  title = `${props.seo.title} - A Curious Mind`
+}
+let description = 'How can I help you solve technical problems today?'
+if(props.seo?.description) {
+  description = props.seo.description
+}
+let image = 'https://acuriousmind.com/009.jpg'
+if(props.seo?.image) {
+  image = props.seo.image
+}
+---
+<!-- Provides a column to hold the content inside of a fixed window -->
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <meta name="author" content="Dru Sellers" />
+    <meta name="description" content={description} />
+
+    <!-- https://medium.com/slack-developer-blog/everything-you-ever-wanted-to-know-about-unfurling-but-were-afraid-to-ask-or-how-to-make-your-e64b4bb9254 -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={image} />
+</head>
+<body class="bg-brite-50 dark:bg-dim-900 relative">
+
+<!-- neat -->
+<div class="container mx-auto h-full">
+    <!-- start the stack -->
+    <div class="flex flex-col justify-between h-full">
+        <div class="flex flex-col gap-y-8 mt-4">
+            <Header />
+            <slot />
+        </div>
+        <Footer />
+    </div>
+</div>
+
+</body>
+</html>
+
+<style is:global>
+    /* get the bounding box to be full screen in size */
+    html,
+    body {
+        margin: 0;
+        width: 100%;
+        height: 100%;
+    }
+    h1,h2,h3,h4,h5 {
+        font-family: 'Outfit Variable', sans-serif;
+    }
+</style>

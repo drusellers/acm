@@ -33,7 +33,7 @@ if(props.seo?.image) {
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" type="image/svg+xml" href="/a.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 		<meta name="author" content="Dru Sellers" />
@@ -50,11 +50,15 @@ if(props.seo?.image) {
 		<div class="container mx-auto h-full px-4">
 			<!-- start the stack -->
 			<div class="flex flex-col justify-between h-full">
-				<div class="flex flex-col gap-y-8 mt-4">
-					<Header />
+				<div class="flex flex-col gap-y-8 mt-4 px-16">
+					<div class="px-8">
+						<Header />
+					</div>
 					<slot />
 				</div>
-				<Footer />
+				<div class="px-24">
+					<Footer />
+				</div>
 			</div>
 		</div>
 
