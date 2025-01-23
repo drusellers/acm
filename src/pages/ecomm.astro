@@ -1,0 +1,18 @@
+---
+import Intro from "../components/HomePage/Intro.astro";
+import Hero from "../components/Ecomm/Hero.astro";
+import TechnicalJungle from "../components/HomePage/TechnicalJungle.astro";
+import Layout from "../layouts/Layout.astro";
+import Diff from "../components/EComm/Diff.astro";
+---
+
+<Layout>
+    <!-- increase the breathing room -->
+    <div class="flex flex-col gap-y-24 bg-bright-100 rounded-2xl px-8 py-16">
+        <Hero />
+        <Diff />
+        <TechnicalJungle />
+
+        <Intro />
+    </div>
+</Layout>
