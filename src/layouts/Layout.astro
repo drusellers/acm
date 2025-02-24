@@ -3,6 +3,7 @@ import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 import '@fontsource-variable/outfit';
 import '@fontsource-variable/open-sans'
+import styles from '../styles/global.css'
 
 interface Props {
 	seo?: {
@@ -43,6 +44,7 @@ if(props.seo?.image) {
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
 		<meta property="og:image" content={image} />
+		<link rel="stylesheet" href={styles} />
 	</head>
 	<body class="bg-brite-50 dark:bg-dim-900 relative">
 
