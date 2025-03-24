@@ -23,5 +23,12 @@ const projects = defineCollection({
     })
 });
 
+const decks = defineCollection({
+    loader: glob({ pattern: "**\/*.mdx", base: "./src/content/deck" }),
+    schema: z.object({
+        title: z.string(),
+    })
+});
+
 // 4. Export a single `collections` object to register your collection(s)
-export const collections = { posts, projects };
+export const collections = { posts, projects, decks };

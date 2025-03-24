@@ -7,6 +7,12 @@
 
 @theme {
 
+    /* the default font */
+    --font-sans: "Open Sans Variable";
+    --font-headings: "Outfit Variable";
+
+    /* background colors for light mode */
+    /* a blue tinted gray */
     --color-bright-50: var(--color-slate-50);
     --color-bright-100: var(--color-slate-100);
     --color-bright-200: var(--color-slate-200);
@@ -19,6 +25,8 @@
     --color-bright-900: var(--color-slate-900);
     --color-bright-950: var(--color-slate-950);
 
+    /* background colors for dark mode */
+    /* cooler than stone */
     --color-dim-50: var(--color-zinc-50);
     --color-dim-100: var(--color-zinc-100);
     --color-dim-200: var(--color-zinc-200);

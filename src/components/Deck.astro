@@ -1,0 +1,17 @@
+---
+import {getEntry, render} from 'astro:content';
+
+interface Props {
+  key: string
+}
+
+const props = Astro.props
+
+const p = (await getEntry('decks', props.key))!
+const { Content } = await render(p)
+---
+
+<div>
+    <div class="font-headings text-xl font-semibold mb-2 text-bright-600">{p?.data.title}</div>
+    <Content />
+</div>
