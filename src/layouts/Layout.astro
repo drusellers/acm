@@ -1,31 +1,31 @@
 ---
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
-import '@fontsource-variable/outfit';
-import '@fontsource-variable/open-sans'
-import styles from '../styles/global.css'
+import "@fontsource-variable/outfit";
+import "@fontsource-variable/open-sans";
+import "../styles/global.css";
 
 interface Props {
 	seo?: {
-		title: string
-		description?: string
-		image?: string
-	}
+		title: string;
+		description?: string;
+		image?: string;
+	};
 }
 
-const props = Astro.props
+const props = Astro.props;
 
-let title = 'A Curious Mind'
-if(props.seo) {
-	title = `${props.seo.title} - A Curious Mind`
+let title = "A Curious Mind";
+if (props.seo) {
+	title = `${props.seo.title} - A Curious Mind`;
 }
-let description = 'How can I help you solve technical problems today?'
-if(props.seo?.description) {
-	description = props.seo.description
+let description = "How can I help you solve technical problems today?";
+if (props.seo?.description) {
+	description = props.seo.description;
 }
-let image = 'https://acuriousmind.com/009.jpg'
-if(props.seo?.image) {
-	image = props.seo.image
+let image = "https://acuriousmind.com/009.jpg";
+if (props.seo?.image) {
+	image = props.seo.image;
 }
 ---
 <!-- Provides a column to hold the content inside of a fixed window -->
@@ -44,7 +44,6 @@ if(props.seo?.image) {
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
 		<meta property="og:image" content={image} />
-		<link rel="stylesheet" href={styles} />
 	</head>
 	<body class="bg-brite-50 dark:bg-dim-900 relative">
 

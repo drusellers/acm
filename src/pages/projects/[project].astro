@@ -1,25 +1,25 @@
 ---
-import { getCollection, getEntry, render } from 'astro:content';
+import { getCollection, getEntry, render } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 
 export async function getStaticPaths() {
-    const allProjects = await getCollection('projects')
-    return allProjects.map(p => ({params:{project:p.id}}))
+	const allProjects = await getCollection("projects");
+	return allProjects.map((p) => ({ params: { project: p.id } }));
 }
 
-const { project } = Astro.params
+const { project } = Astro.params;
 
-const p = await getEntry('projects', project)
+const p = await getEntry("projects", project);
 
-if(p === undefined) {
-    return Astro.redirect('/404')
+if (p === undefined) {
+	return Astro.redirect("/404");
 }
 
 const seo = {
-    title: p.data.title
-}
+	title: p.data.title,
+};
 
-const { Content } = await render(p)
+const { Content } = await render(p);
 ---
 <Layout seo={seo}>
     <div class="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-8">

@@ -1,14 +1,14 @@
 ---
-import {getEntry, render} from 'astro:content';
+import { getEntry, render } from "astro:content";
 
 interface Props {
-  key: string
+	key: string;
 }
 
-const props = Astro.props
+const props = Astro.props;
 
-const p = (await getEntry('decks', props.key))!
-const { Content } = await render(p)
+const p = (await getEntry("decks", props.key))!;
+const { Content } = await render(p);
 ---
 
 <div>

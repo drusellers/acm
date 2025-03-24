@@ -1,14 +1,13 @@
 ---
-import { getEntry } from 'astro:content';
+import { getEntry } from "astro:content";
 
 interface Props {
-  projectKey: string
+	projectKey: string;
 }
 
-const props = Astro.props
+const props = Astro.props;
 
-const p = (await getEntry('projects', props.projectKey))!
-
+const p = (await getEntry("projects", props.projectKey))!;
 ---
 <div class="bg-gray-100 rounded px-4 py-2 flex flex-col gap-y-2">
   <div class="italic">

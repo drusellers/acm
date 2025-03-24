@@ -6,48 +6,47 @@
 @plugin '@tailwindcss/typography';
 
 @theme {
+	/* the default font */
+	--font-sans: "Open Sans Variable";
+	--font-headings: "Outfit Variable";
 
-    /* the default font */
-    --font-sans: "Open Sans Variable";
-    --font-headings: "Outfit Variable";
+	/* background colors for light mode */
+	/* a blue tinted gray */
+	--color-bright-50: var(--color-slate-50);
+	--color-bright-100: var(--color-slate-100);
+	--color-bright-200: var(--color-slate-200);
+	--color-bright-300: var(--color-slate-300);
+	--color-bright-400: var(--color-slate-400);
+	--color-bright-500: var(--color-slate-500);
+	--color-bright-600: var(--color-slate-600);
+	--color-bright-700: var(--color-slate-700);
+	--color-bright-800: var(--color-slate-800);
+	--color-bright-900: var(--color-slate-900);
+	--color-bright-950: var(--color-slate-950);
 
-    /* background colors for light mode */
-    /* a blue tinted gray */
-    --color-bright-50: var(--color-slate-50);
-    --color-bright-100: var(--color-slate-100);
-    --color-bright-200: var(--color-slate-200);
-    --color-bright-300: var(--color-slate-300);
-    --color-bright-400: var(--color-slate-400);
-    --color-bright-500: var(--color-slate-500);
-    --color-bright-600: var(--color-slate-600);
-    --color-bright-700: var(--color-slate-700);
-    --color-bright-800: var(--color-slate-800);
-    --color-bright-900: var(--color-slate-900);
-    --color-bright-950: var(--color-slate-950);
+	/* background colors for dark mode */
+	/* cooler than stone */
+	--color-dim-50: var(--color-zinc-50);
+	--color-dim-100: var(--color-zinc-100);
+	--color-dim-200: var(--color-zinc-200);
+	--color-dim-300: var(--color-zinc-300);
+	--color-dim-400: var(--color-zinc-400);
+	--color-dim-500: var(--color-zinc-500);
+	--color-dim-600: var(--color-zinc-600);
+	--color-dim-700: var(--color-zinc-700);
+	--color-dim-800: var(--color-zinc-800);
+	--color-dim-900: var(--color-zinc-900);
+	--color-dim-950: var(--color-zinc-950);
 
-    /* background colors for dark mode */
-    /* cooler than stone */
-    --color-dim-50: var(--color-zinc-50);
-    --color-dim-100: var(--color-zinc-100);
-    --color-dim-200: var(--color-zinc-200);
-    --color-dim-300: var(--color-zinc-300);
-    --color-dim-400: var(--color-zinc-400);
-    --color-dim-500: var(--color-zinc-500);
-    --color-dim-600: var(--color-zinc-600);
-    --color-dim-700: var(--color-zinc-700);
-    --color-dim-800: var(--color-zinc-800);
-    --color-dim-900: var(--color-zinc-900);
-    --color-dim-950: var(--color-zinc-950);
-
-    --color-legal-50: var(--color-amber-50);
-    --color-legal-100: var(--color-amber-100);
-    --color-legal-200: var(--color-amber-200);
-    --color-legal-300: var(--color-amber-300);
-    --color-legal-400: var(--color-amber-400);
-    --color-legal-500: var(--color-amber-500);
-    --color-legal-600: var(--color-amber-600);
-    --color-legal-700: var(--color-amber-700);
-    --color-legal-800: var(--color-amber-800);
-    --color-legal-900: var(--color-amber-900);
-    --color-legal-950: var(--color-amber-950);
+	--color-legal-50: var(--color-amber-50);
+	--color-legal-100: var(--color-amber-100);
+	--color-legal-200: var(--color-amber-200);
+	--color-legal-300: var(--color-amber-300);
+	--color-legal-400: var(--color-amber-400);
+	--color-legal-500: var(--color-amber-500);
+	--color-legal-600: var(--color-amber-600);
+	--color-legal-700: var(--color-amber-700);
+	--color-legal-800: var(--color-amber-800);
+	--color-legal-900: var(--color-amber-900);
+	--color-legal-950: var(--color-amber-950);
 }

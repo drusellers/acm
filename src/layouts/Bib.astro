@@ -1,30 +1,30 @@
 ---
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
-import '@fontsource-variable/outfit';
-import '@fontsource-variable/open-sans'
+import "@fontsource-variable/outfit";
+import "@fontsource-variable/open-sans";
 
 interface Props {
-  seo?: {
-    title: string
-    description?: string
-    image?: string
-  }
+	seo?: {
+		title: string;
+		description?: string;
+		image?: string;
+	};
 }
 
-const props = Astro.props
+const props = Astro.props;
 
-let title = 'A Curious Mind'
-if(props.seo) {
-  title = `${props.seo.title} - A Curious Mind`
+let title = "A Curious Mind";
+if (props.seo) {
+	title = `${props.seo.title} - A Curious Mind`;
 }
-let description = 'How can I help you solve technical problems today?'
-if(props.seo?.description) {
-  description = props.seo.description
+let description = "How can I help you solve technical problems today?";
+if (props.seo?.description) {
+	description = props.seo.description;
 }
-let image = 'https://acuriousmind.com/009.jpg'
-if(props.seo?.image) {
-  image = props.seo.image
+let image = "https://acuriousmind.com/009.jpg";
+if (props.seo?.image) {
+	image = props.seo.image;
 }
 ---
 <!-- Provides a column to hold the content inside of a fixed window -->
