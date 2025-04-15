@@ -5,6 +5,21 @@
 
 @plugin '@tailwindcss/typography';
 
+@layer base {  
+	/* start my base */
+	/* links: https://frontendmasters.com/blog/chilled-out-text-underlines/ */
+	a {
+	  color: var(--color-blue-600);
+	  text-decoration: underline;
+	  text-underline-offset: 2px;
+	}
+  
+	a:not(:is(:hover, :focus)) {
+	  text-decoration-color:
+			  color-mix(in srgb, currentColor, transparent 75%);
+	}
+  }
+  
 @theme {
 	/* the default font */
 	--font-sans: "Open Sans Variable";
@@ -49,4 +64,15 @@
 	--color-legal-800: var(--color-amber-800);
 	--color-legal-900: var(--color-amber-900);
 	--color-legal-950: var(--color-amber-950);
+
+	/* surface colors */
+	--color-surface-light-0: var(--color-bright-50);
+	--color-surface-light-1: var(--color-bright-100);
+	--color-surface-light-2: var(--color-bright-300);
+
+	--color-surface-dark-0: #040e18;
+	--color-surface-dark-1: #061929;
+	--color-surface-dark-2: #09243b; /* starting point */
 }
+
+

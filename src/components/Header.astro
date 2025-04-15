@@ -1,19 +1,21 @@
 ---
 import { Image } from "astro:assets";
-import logo from "../assets/acm.svg";
-import sig from "../assets/signature.svg";
+import Logo from "../assets/acm.svg";
+
+const height = 25
+const width = (79/10) * height
 ---
 <div class="flex justify-between">
     <div class="flex flex-col">
         <h1 class="text-3xl text-blue-300">
-            <a href="/">
-                 <Image src={logo} height="25" alt="A Curious Mind" />
+            <a href="/" class="text-black dark:text-white">
+                 <Logo height={height} width={width} />
                 <!--A Curious Mind-->
             </a>
         </h1>
         <div class="text-xs flex">
             <span class="text-bright-400">the professional side of</span>
-            <a target="_blank" href="https://drusellers.com" class="ml-2">
+            <a target="_blank" href="https://drusellers.com" class="ml-[1ch]">
                 <!--<Image src={sig} alt="Dru Sellers" height="30"/>-->
                 Dru Sellers
             </a>
@@ -22,7 +24,7 @@ import sig from "../assets/signature.svg";
     <div class="flex space-x-2">
         <a href="https://savvycal.com/acuriousmind/30min"
            target="_blank"
-           class="rounded bg-blue-200 px-4 md:px-8 py-2 flex items-center text-blue-600 font-headings dark:bg-blue-900 dark:text-blue-200">
+           class="rounded bg-blue-200 px-4 md:px-8 py-2 flex items-center text-blue-600 font-headings dark:bg-blue-900 dark:text-blue-200 no-underline">
             Book a Call
         </a>
     </div>
