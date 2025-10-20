@@ -27,6 +27,6 @@
 		"tailwindcss": "^4.0.8"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "1.9.4"
+		"@biomejs/biome": "^2.0.0"
 	}
 }
