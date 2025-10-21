@@ -1,0 +1,58 @@
+---
+import { Image } from "astro:assets";
+import bookDru from "../../assets/007.jpg";
+import seriousDru from "../../assets/009.jpg";
+import { Content } from "../../content/intro.md";
+---
+<!-- a two column component -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-y-8 gap-x-8 bg-surface-light-2 dark:bg-surface-dark-2 p-8 pb-8 rounded">
+    <div class="h-[150px]">
+        <!-- need an updated version of this -->
+        <!-- sepia black background -->
+        <section id="fader">
+            <Image src={bookDru} alt="A very serious Dru" class="rounded" id="bottom" />
+            <Image src={seriousDru} alt="A very serious Dru" class="rounded" id="top" />
+        </section>
+    </div>
+    <div class="prose dark:prose-invert"><Content /></div>
+</div>
+<style>
+    #fader {
+        position: relative;
+        background: #2A2225;
+    }
+
+    #fader img {
+        position: absolute;
+    }
+
+    /*
+    https://www.youtube.com/watch?v=UmzFk68Bwdk&t=1630s
+    https://developer.mozilla.org/en-US/docs/Web/CSS/animation-range
+    https://scroll-driven-animations.style/tools/view-timeline/ranges/#range-start-name=contain&range-start-percentage=0&range-end-name=contain&range-end-percentage=50&view-timeline-axis=block&view-timeline-inset=0&subject-size=smaller&subject-animation=reveal&interactivity=clicktodrag&show-areas=yes&show-fromto=yes&show-labels=yes
+    */
+
+    #top {
+        opacity: 0;
+        animation: fade-in ease-out forwards;
+        animation-timeline: view(block);
+        animation-range-start: contain;
+        animation-range-end: contain 50%;
+    }
+
+    #bottom {
+        opacity: 1;
+        animation: fade-out ease-out forwards;
+        animation-timeline: view(block);
+        animation-range-start: contain;
+        animation-range-end: contain 50%;
+    }
+
+    @keyframes fade-in {
+        to { opacity: 1;}
+    }
+    @keyframes fade-out {
+        to { opacity: 0;}
+    }
+
+</style>

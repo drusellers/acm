@@ -2,7 +2,7 @@
 import { defineCollection, z } from "astro:content";
 
 // 2. Import loader(s)
-import { file, glob } from "astro/loaders";
+import { glob } from "astro/loaders";
 
 // 3. Define your collection(s)
 const posts = defineCollection({

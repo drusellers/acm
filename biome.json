@@ -1,5 +1,12 @@
 {
-	"$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
+	"$schema": "https://biomejs.dev/schemas/2.2.6/schema.json",
+	"assist": {
+		"actions": {
+			"source": {
+				"organizeImports": "on"
+			}
+		}
+	},
 	"vcs": {
 		"enabled": false,
 		"clientKind": "git",
@@ -7,14 +14,17 @@
 	},
 	"files": {
 		"ignoreUnknown": false,
-		"ignore": [".astro", "dist"]
+		"includes": [
+			"./src/**/*.ts",
+			"./src/**/*.tsx",
+			"./src/**/*.js",
+			"./src/**/*.md",
+			"./src/**/*.mdx"
+		]
 	},
 	"formatter": {
 		"enabled": true,
 		"indentStyle": "tab"
-	},
-	"organizeImports": {
-		"enabled": true
 	},
 	"linter": {
 		"enabled": true,

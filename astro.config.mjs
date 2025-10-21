@@ -11,6 +11,9 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineConfig({
 	integrations: [mdx(), react()],
 
+	server: {
+		port: 3000
+	},
 	vite: {
 		plugins: [tailwindcss()],
 	},
