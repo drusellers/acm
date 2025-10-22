@@ -7,25 +7,37 @@ type Props = {
 	showControls?: boolean;
 };
 
+const workoutScript: TypeStep[] = [
+	{ op: "clear" },
+	{ op: "type", text: "best strength program for runners" },
+	{ op: "pause", ms: 1600 },
+	{ op: "backspace", n: 8 }, // remove "runners"
+	{ op: "type", text: " sprinters" },
+	{ op: "pause", ms: 700 },
+	{ op: "backspaceWord" },
+	{ op: "type", text: " masters athletes 40+" },
+	{ op: "pause", ms: 800 },
+	{ op: "backspace", n: 4 }, // remove " 40+"
+	{ op: "type", text: " 45+" },
+	{ op: "pause", ms: 800 },
+];
+const clothingScript: TypeStep[] = [
+	{ op: "clear" },
+	{ op: "type", text: "can I fit in a LG?" },
+	{ op: "pause", ms: 600 },
+	{ op: "backspace", n: 3 }, // remove "runners"
+	{ op: "pause", ms: 600 },
+	{ op: "type", text: "XL?" },
+	{ op: "pause", ms: 600 },
+];
+
 export default function SearchRevolver({
 	loop = true,
 	autostart = true,
 	showControls = true,
 }: Props) {
 	const script = useMemo<TypeStep[]>(
-		() => [
-			{ op: "clear" },
-			{ op: "type", text: "best strength program for runners" },
-			{ op: "pause", ms: 600 },
-			{ op: "backspace", n: 8 }, // remove "runners"
-			{ op: "type", text: " sprinters" },
-			{ op: "pause", ms: 700 },
-			{ op: "backspaceWord" },
-			{ op: "type", text: " masters athletes 40+" },
-			{ op: "pause", ms: 800 },
-			{ op: "backspace", n: 4 }, // remove " 40+"
-			{ op: "type", text: " 45+" },
-		],
+		() => [...workoutScript, ...clothingScript],
 		[],
 	);
 
