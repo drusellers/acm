@@ -1,0 +1,13 @@
+---
+interface Props {
+  headline: string;
+}
+
+const { headline } = Astro.props;
+---
+<div>
+    <div class="prose dark:prose-invert text-2xl font-bold">{headline}</div>
+    <div class="prose dark:prose-invert">
+        <slot />
+    </div>
+</div>

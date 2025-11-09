@@ -3,7 +3,7 @@ import { frontmatter as fm } from "../../content/search-focus.md";
 ---
 <div class="grid grid-cols-1 md:grid-cols-9 gap-y-8 gap-x-8">
     <div class="col-span-3"></div>
-    <div class="col-span-6">{ fm.eyebrow }</div>
+    <div class="col-span-6">{ fm.hero_identity.eyebrow }</div>
     <div class="flex flex-col gap-y-4 md:col-span-3 justify-end">
         <div class="flex justify-center items-start">
             <svg xmlns="http://www.w3.org/2000/svg" 
@@ -16,7 +16,7 @@ import { frontmatter as fm } from "../../content/search-focus.md";
     </div>
     <div class="flex flex-col gap-y-4 md:col-span-6">
         <h2 class="text-7xl text-bright-700 font-bold">
-            { fm.hero }
+            { fm.hero_identity.copy }
         </h2>
     </div>
 </div>

@@ -1,0 +1,35 @@
+---
+import { getCollection, getEntry, render } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+
+export async function getStaticPaths() {
+  const allPosts = await getCollection("posts");
+  return allPosts.map((p) => ({ params: { post: p.id } }));
+}
+
+const { post } = Astro.params;
+
+const p = await getEntry("posts", post);
+
+if (p === undefined) {
+  return Astro.redirect("/404");
+}
+
+const seo = {
+  title: p.data.seo.title,
+};
+
+const { Content } = await render(p);
+---
+<Layout seo={seo}>
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-8">
+        <div class="flex flex-col gap-y-8">
+            <div>
+                <h1 class="text-2xl dark:text-dim-300">{p.data.title}</h1>
+            </div>
+        </div>
+        <div class="prose dark:prose-invert">
+            <Content />
+        </div>
+    </div>
+</Layout>

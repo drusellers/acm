@@ -4,10 +4,10 @@ import { frontmatter as fm } from "../../content/search-focus.md";
 ---
 <div class="flex flex-col gap-y-4">
     <h2 class="text-2xl font-semibold">
-        { fm.diff.title }
+        { fm.positioning.title }
     </h2>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-x-8">
-        { fm.diff.bits.map((i: { headline: string, copy: string }) => {
+        { fm.positioning.bits.map((i: { headline: string, copy: string }) => {
             return (<div class="flex flex-col gap-y-4">
                         <h3 class="text-xl">{i.headline}</h3>
                         <p class="text-gray-500">

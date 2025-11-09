@@ -9,6 +9,16 @@ const posts = defineCollection({
 	loader: glob({ pattern: "**/*.md", base: "./src/content/posts" }),
 	schema: z.object({
 		title: z.string(),
+		published: z.optional(z.boolean()),
+		publishedOn: z.string(),
+		seo: z.object({
+			title: z.string(),
+		}),
+		excerpt: z.object({
+			eyebrow: z.string(),
+			title: z.string(),
+			tease: z.string(),
+		}),
 	}),
 });
 

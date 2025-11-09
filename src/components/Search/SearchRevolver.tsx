@@ -25,9 +25,18 @@ const clothingScript: TypeStep[] = [
 	{ op: "clear" },
 	{ op: "type", text: "can I fit in a LG?" },
 	{ op: "pause", ms: 600 },
-	{ op: "backspace", n: 3 }, // remove "runners"
+	{ op: "backspace", n: 3 }, // remove "LG?"
 	{ op: "pause", ms: 600 },
 	{ op: "type", text: "XL?" },
+	{ op: "pause", ms: 600 },
+];
+const mayorSearch: TypeStep[] = [
+	{ op: "clear" },
+	{ op: "type", text: "who is the governor of austin?" },
+	{ op: "pause", ms: 600 },
+	{ op: "backspace", n: 7 }, // remove "austin?"
+	{ op: "pause", ms: 600 },
+	{ op: "type", text: "texas?" },
 	{ op: "pause", ms: 600 },
 ];
 
@@ -37,7 +46,7 @@ export default function SearchRevolver({
 	showControls = true,
 }: Props) {
 	const script = useMemo<TypeStep[]>(
-		() => [...workoutScript, ...clothingScript],
+		() => [...workoutScript, ...clothingScript, ...mayorSearch],
 		[],
 	);
 
