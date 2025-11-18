@@ -4,7 +4,7 @@ import ServiceItem from "./ServiceItem.astro";
 ---
 <div class="grid grid-cols-1 md:grid-cols-2 gap-y-8 gap-x-8">
   { fm.services.map((svc: any) => {
-    return <ServiceItem headline={svc.headline}>
+    return <ServiceItem headline={svc.headline} punch={svc.punch}>
       {svc.copy}
     </ServiceItem>
   })}

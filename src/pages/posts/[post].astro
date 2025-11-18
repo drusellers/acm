@@ -16,7 +16,7 @@ if (p === undefined) {
 }
 
 const seo = {
-  title: p.data.seo.title,
+  title: p.data.seo.title ?? p.data.title,
 };
 
 const { Content } = await render(p);

@@ -12,11 +12,11 @@ const posts = defineCollection({
 		published: z.optional(z.boolean()),
 		publishedOn: z.string(),
 		seo: z.object({
-			title: z.string(),
+			title: z.optional(z.string()),
 		}),
 		excerpt: z.object({
 			eyebrow: z.string(),
-			title: z.string(),
+			title: z.optional(z.string()),
 			tease: z.string(),
 		}),
 	}),

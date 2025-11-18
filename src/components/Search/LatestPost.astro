@@ -20,9 +20,14 @@ const { Content } = await render(latest);
     <div class="text-xs italic">{ latest.data.excerpt.eyebrow}</div>
     <div class="text-lg font-bold">
       <a href={`/posts/${latest.id}`}>
-        { latest.data.excerpt.title}
+        { latest.data.excerpt.title ?? latest.data.title }
       </a>
 
     </div>
     <div class="text-md">{ latest.data.excerpt.tease}</div>
+    <div>
+        <a href={`/posts/${latest.id}`}>
+          Read More
+        </a>
+    </div>
 </div>

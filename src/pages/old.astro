@@ -1,0 +1,22 @@
+---
+import Diff from "../components/HomePage/Diff.astro";
+import Hero2 from "../components/HomePage/Hero2.astro";
+import Intro from "../components/HomePage/Intro.astro";
+import OnDeck from "../components/HomePage/OnDeck.astro";
+import TechnicalJungle from "../components/HomePage/TechnicalJungle.astro";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout>
+	<!-- increase the breathing room -->
+	<div class="flex flex-col gap-y-24 bg-surface-light-1 dark:bg-surface-dark-1 rounded-2xl px-8 py-16">
+		<Hero2 />
+		<Diff />
+		<TechnicalJungle />
+
+		<Intro />
+
+		<OnDeck />
+	</div>
+	
+</Layout>
