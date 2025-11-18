@@ -1,21 +1,23 @@
 ---
 import { frontmatter as fm } from "../../content/search-focus.md";
 ---
-<div class="grid grid-cols-1 md:grid-cols-9 gap-y-8 gap-x-8">
+<div class="grid grid-cols-1 md:grid-cols-9 gap-y-2 gap-x-8">
     <div class="col-span-3"></div>
-    <div class="col-span-6">{ fm.hero_identity.eyebrow }</div>
+    <div class="col-span-6 text-bright-400 italic">{ fm.hero_identity.eyebrow }</div>
     <div class="flex flex-col gap-y-4 md:col-span-3 justify-end">
-        <div class="flex justify-center items-start">
-            <svg xmlns="http://www.w3.org/2000/svg" 
-            width="250"
-            class="fill-bright-700"
-            viewBox="0 0 640 640">
-            
-            <path d="M96 160C78.3 160 64 174.3 64 192L64 448C64 465.7 78.3 480 96 480L544 480C561.7 480 576 465.7 576 448L576 192C576 174.3 561.7 160 544 160L96 160zM32 192C32 156.7 60.7 128 96 128L544 128C579.3 128 608 156.7 608 192L608 448C608 483.3 579.3 512 544 512L96 512C60.7 512 32 483.3 32 448L32 192zM160 240L160 400C160 408.8 152.8 416 144 416C135.2 416 128 408.8 128 400L128 240C128 231.2 135.2 224 144 224C152.8 224 160 231.2 160 240z"/></svg>
+        <div class="flex justify-center items-start ">
+            <svg width="250" viewBox="0 0 576 384" xmlns="http://www.w3.org/2000/svg"
+                 class="fill-bright-700"
+
+            >
+                <path d="M64 32C46.3 32 32 46.3 32 64V320C32 337.7 46.3 352 64 352H512C529.7 352 544 337.7 544 320V64C544 46.3 529.7 32 512 32H64ZM0 64C0 28.7 28.7 0 64 0H512C547.3 0 576 28.7 576 64V320C576 355.3 547.3 384 512 384H64C28.7 384 0 355.3 0 320V64ZM128 112V272C128 280.8 120.8 288 112 288C103.2 288 96 280.8 96 272V112C96 103.2 103.2 96 112 96C120.8 96 128 103.2 128 112Z"
+                      class="fill-bright-700"
+                      />
+            </svg>
         </div>
     </div>
-    <div class="flex flex-col gap-y-4 md:col-span-6">
-        <h2 class="text-7xl text-bright-700 font-bold">
+    <div class="flex flex-col gap-y-4 md:col-span-6 items-start leading-none">
+        <h2 class="text-7xl text-bright-700 font-bold leading-none">
             { fm.hero_identity.copy }
         </h2>
     </div>
