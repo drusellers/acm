@@ -1,0 +1,40 @@
+---
+import { getCollection, getEntry, render } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+
+export async function getStaticPaths() {
+	const allTerms = await getCollection("glossary");
+	return allTerms.map((t) => ({ params: { term: t.id } }));
+}
+
+const { term } = Astro.params;
+
+const t = await getEntry("glossary", term);
+
+if (t === undefined) {
+	return Astro.redirect("/404");
+}
+
+const seo = {
+	title: t.data.label,
+};
+
+const { Content } = await render(t);
+---
+
+<Layout seo={seo}>
+    <div class="mb-8">
+        <a
+            href="/glossary"
+            class="text-sm text-gray-500 hover:text-gray-700 dark:text-dim-400 dark:hover:text-dim-300"
+        >
+            ← Back to Glossary
+        </a>
+    </div>
+
+    <h1 class="text-3xl font-bold mb-6 dark:text-dim-300">{t.data.label}</h1>
+
+    <div class="prose dark:prose-invert">
+        <Content />
+    </div>
+</Layout>
