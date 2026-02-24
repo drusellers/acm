@@ -1,0 +1,14 @@
+[work]
+skip_permissions = false
+auto_implement = false
+
+[vcs]
+prefer = "auto"
+
+[output]
+colors = true
+
+[editor]
+
+[harness]
+prefer = "auto"

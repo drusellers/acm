@@ -1,0 +1,69 @@
+{
+  "changes": {
+    "m627": {
+      "id": "m627",
+      "title": "Add Glossary",
+      "body": "## Goal\n\nWe're going to add a glossary section to the website. It's going to store everything in Astros content in a collection called glossary. And the front matters should include the actual term that will be displayed as `label`. We need a route that is the glossary overall, and then a route per term.\n\n## Acceptance Criteria\n\n- A new route /glossary\n- A new route /glossary/[TERM]\n\n## Context\n\nThis is an Astro 5.x project using content collections with the new `astro:content` API.\n\n**Relevant files and patterns:**\n- `src/content.config.ts` - Defines content collections (posts, projects, decks)\n- `src/pages/projects/index.astro` - Example list page for a collection\n- `src/pages/projects/[project].astro` - Example dynamic route for individual items\n- `src/layouts/Layout.astro` - Main layout component with SEO support\n- `src/components/Term.astro` - Existing component for displaying term definitions\n\n**Collection structure:**\n- Collections are defined in `content.config.ts` using `defineCollection()` with Zod schemas\n- Content files live in `src/content/[collection-name]/`\n- Uses `glob()` loader to match file patterns\n- Dynamic routes use `getStaticPaths()` to generate pages at build time\n\n**Similar implementations:**\n- Projects collection uses `src/content/projects/*.mdx` files\n- Each project has frontmatter with title, abstract, systems, technologies, tease\n- Routes: `/projects` (list) and `/projects/[project]` (detail)\n\n## Implementation Checklist\n\n- [ ] Create `src/content/glossary/` directory for glossary entries\n- [ ] Add glossary collection to `src/content.config.ts` with schema including `label` field\n- [ ] Create `src/pages/glossary/index.astro` - list all glossary terms\n- [ ] Create `src/pages/glossary/[term].astro` - display individual term details\n- [ ] Create a sample glossary entry file (e.g., `src/content/glossary/sample.md`)\n- [ ] Test both routes work correctly\n\n## Questions\n\n✅ **Resolved:**\n- File format: `.md` files\n- Fields: just `label` for now\n- Styling: plain layout, user will refine later\n\n## Log\n\n- 2026-02-24: Change created\n- 2026-02-24: Planning completed - acceptance criteria and implementation checklist defined based on codebase analysis\n- 2026-02-24: Questions answered - using .md format, label field only, plain styling\n\n## Changelog Type\n\nTo be determined during implementation (feature/fix/change/deprecated/removed/security/internal)",
+      "status": "in_progress",
+      "priority": "medium",
+      "changelog_type": null,
+      "parent": null,
+      "children": [],
+      "dependencies": [],
+      "tags": [],
+      "created_at": "2026-02-24T18:06:50.718826Z",
+      "updated_at": "2026-02-24T18:28:29.684449Z"
+    }
+  },
+  "events": [
+    {
+      "id": "g4f7",
+      "change_id": "m627",
+      "event_type": "created",
+      "data": {
+        "parent": null,
+        "priority": "medium",
+        "title": "Add Glossary"
+      },
+      "created_at": "2026-02-24T18:09:56.067973Z"
+    },
+    {
+      "id": "ncww",
+      "change_id": "m627",
+      "event_type": "status_changed",
+      "data": {
+        "from": "draft",
+        "to": "approved"
+      },
+      "created_at": "2026-02-24T18:17:43.983756Z"
+    },
+    {
+      "id": "orx3",
+      "change_id": "m627",
+      "event_type": "status_changed",
+      "data": {
+        "from": "approved",
+        "to": "in_progress"
+      },
+      "created_at": "2026-02-24T18:17:47.403613Z"
+    },
+    {
+      "id": "ji5x",
+      "change_id": "m627",
+      "event_type": "updated",
+      "data": {
+        "field": "body"
+      },
+      "created_at": "2026-02-24T18:26:59.280631Z"
+    },
+    {
+      "id": "iy1j",
+      "change_id": "m627",
+      "event_type": "updated",
+      "data": {
+        "field": "body"
+      },
+      "created_at": "2026-02-24T18:28:29.684467Z"
+    }
+  ]
+}
