@@ -1,0 +1,168 @@
+---
+import DesignSystemLayout from "../../layouts/DesignSystem.astro";
+
+const sections = [
+	{
+		title: "Colors",
+		description: "Surface colors, text colors, borders, and accent colors with dark mode support.",
+		href: "/design-system/colors",
+	},
+	{
+		title: "Typography",
+		description: "Font families, sizes, and weights for Outfit Variable and Open Sans Variable.",
+		href: "/design-system/typography",
+	},
+];
+---
+
+<DesignSystemLayout seo={{ title: "Design System" }}>
+	<div class="space-y-8">
+		<!-- Page Description -->
+		<p class="text-[var(--text-secondary)] text-lg">
+			A comprehensive guide to the visual language of this site. Tokens, components,
+			and usage guidelines.
+		</p>
+
+		<!-- Navigation Cards -->
+		<div class="grid md:grid-cols-2 gap-6">
+			{
+				sections.map((section) => (
+					<a
+						href={section.href}
+						class="group block bg-[var(--surface-1)] rounded-lg border border-[var(--border-default)] p-6 hover:border-[var(--accent-brand)] transition-colors"
+					>
+						<h2 class="text-xl font-bold text-[var(--text-primary)] mb-2 group-hover:text-[var(--accent-brand)] transition-colors">
+							{section.title}
+						</h2>
+						<p class="text-[var(--text-secondary)]">{section.description}</p>
+						<div class="mt-4 flex items-center text-[var(--accent-brand)] text-sm font-medium">
+							Explore
+							<svg
+								class="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform"
+								fill="none"
+								stroke="currentColor"
+								viewBox="0 0 24 24"
+								aria-hidden="true"
+							>
+								<path
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									stroke-width="2"
+									d="M9 5l7 7-7 7"></path>
+								</svg>
+						</div>
+					</a>
+					))
+				}
+			</div>
+
+		<!-- Quick Reference -->
+		<div class="bg-[var(--surface-1)] rounded-lg border border-[var(--border-default)] p-6">
+			<h2 class="text-xl font-bold text-[var(--text-primary)] mb-4">Quick Reference</h2>
+
+			<div class="grid md:grid-cols-2 gap-8">
+				<div>
+					<h3 class="font-bold text-[var(--text-secondary)] mb-3">Color Tokens</h3>
+					<div class="space-y-2 font-mono text-sm">
+						<div class="flex items-center gap-2">
+							<div
+								class="w-4 h-4 rounded border border-[var(--border-subtle)]"
+								style="background: var(--surface-0)"
+							></div>
+							<span class="text-[var(--text-muted)]">--surface-0</span>
+						</div>
+						<div class="flex items-center gap-2">
+							<div
+								class="w-4 h-4 rounded border border-[var(--border-subtle)]"
+								style="background: var(--surface-1)"
+							></div>
+							<span class="text-[var(--text-muted)]">--surface-1</span>
+						</div>
+						<div class="flex items-center gap-2">
+							<div
+								class="w-4 h-4 rounded border border-[var(--border-subtle)]"
+								style="background: var(--text-primary)"
+							></div>
+							<span class="text-[var(--text-muted)]">--text-primary</span>
+						</div>
+						<div class="flex items-center gap-2">
+							<div
+								class="w-4 h-4 rounded border border-[var(--border-subtle)]"
+								style="background: var(--accent-brand)"
+							></div>
+							<span class="text-[var(--text-muted)]">--accent-brand</span>
+						</div>
+					</div>
+				</div>
+
+				<div>
+					<h3 class="font-bold text-[var(--text-secondary)] mb-3">Typography</h3>
+					<div class="space-y-3">
+						<div>
+							<div
+								class="text-2xl mb-1"
+								style="font-family: 'Outfit Variable', sans-serif;"
+							>
+								Outfit Variable
+							</div>
+							<div class="text-sm text-[var(--text-muted)]">Headings font (100-900)</div>
+						</div>
+						<div>
+							<div
+								class="text-2xl mb-1"
+								style="font-family: 'Open Sans Variable', sans-serif;"
+							>
+								Open Sans Variable
+							</div>
+							<div class="text-sm text-[var(--text-muted)]">Body font (300-800)</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Token Layers -->
+		<div class="bg-[var(--surface-1)] rounded-lg border border-[var(--border-default)] p-6">
+			<h2 class="text-xl font-bold text-[var(--text-primary)] mb-4">Token Architecture</h2>
+
+			<div class="space-y-4">
+				<div class="flex gap-4">
+					<div class="w-24 text-right text-sm text-[var(--text-muted)]">Layer 1</div>
+					<div class="flex-1">
+						<div class="font-medium text-[var(--text-primary)]">Primitives</div>
+						<div class="text-sm text-[var(--text-muted)]">
+							Tailwind defaults: --color-slate-*, --color-zinc-*, etc.
+						</div>
+					</div>
+				</div>
+				<div class="flex gap-4">
+					<div class="w-24 text-right text-sm text-[var(--text-muted)]">Layer 2</div>
+					<div class="flex-1">
+						<div class="font-medium text-[var(--text-primary)]">Semantic</div>
+						<div class="text-sm text-[var(--text-muted)]">
+							Meaningful names: --surface-0, --text-primary, --accent-brand
+						</div>
+					</div>
+				</div>
+				<div class="flex gap-4">
+					<div class="w-24 text-right text-sm text-[var(--text-muted)]">Layer 3</div>
+					<div class="flex-1">
+						<div class="font-medium text-[var(--text-primary)]">Contextual</div>
+						<div class="text-sm text-[var(--text-muted)]">
+							Light/Dark mapping via .dark class
+						</div>
+					</div>
+				</div>
+				<div class="flex gap-4">
+					<div class="w-24 text-right text-sm text-[var(--text-muted)]">Layer 4</div>
+					<div class="flex-1">
+						<div class="font-medium text-[var(--text-primary)]">Component</div>
+						<div class="text-sm text-[var(--text-muted)]">
+							Component-specific: --button-bg-primary, --card-bg, etc.
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</DesignSystemLayout>

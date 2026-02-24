@@ -5,6 +5,56 @@
 
 @plugin '@tailwindcss/typography';
 
+/* LAYER 2: SEMANTIC TOKENS */
+@layer tokens {
+  :root {
+    /* Surfaces - Backgrounds at different elevations */
+    --surface-0: var(--color-surface-light-0);
+    --surface-1: var(--color-surface-light-1);
+    --surface-2: var(--color-surface-light-2);
+    --surface-3: var(--color-bright-200);
+    --surface-4: var(--color-bright-300);
+
+    /* Text colors */
+    --text-primary: var(--color-bright-950);
+    --text-secondary: var(--color-bright-700);
+    --text-muted: var(--color-bright-500);
+    --text-inverse: var(--color-bright-50);
+
+    /* Borders */
+    --border-default: var(--color-bright-300);
+    --border-subtle: var(--color-bright-200);
+
+    /* Accents */
+    --accent-brand: var(--color-blue-600);
+    --accent-danger: var(--color-red-600);
+    --accent-success: var(--color-green-600);
+    --accent-warning: var(--color-amber-500);
+  }
+
+  /* LAYER 3: CONTEXTUAL TOKENS - Dark theme mapping */
+  .dark {
+    --surface-0: var(--color-surface-dark-0);
+    --surface-1: var(--color-surface-dark-1);
+    --surface-2: var(--color-surface-dark-2);
+    --surface-3: #0d2d47;
+    --surface-4: #103552;
+
+    --text-primary: var(--color-dim-50);
+    --text-secondary: var(--color-dim-300);
+    --text-muted: var(--color-dim-500);
+    --text-inverse: var(--color-dim-950);
+
+    --border-default: #1a4a6e;
+    --border-subtle: #0d2d47;
+
+    --accent-brand: var(--color-blue-400);
+    --accent-danger: var(--color-red-400);
+    --accent-success: var(--color-green-400);
+    --accent-warning: var(--color-amber-400);
+  }
+}
+
 @layer base {  
 	/* start my base */
 	/* links: https://frontendmasters.com/blog/chilled-out-text-underlines/ */
@@ -74,5 +124,8 @@
 	--color-surface-dark-1: #061929;
 	--color-surface-dark-2: #09243b; /* starting point */
 }
+
+/* LAYER 4: COMPONENT TOKENS */
+@import "./components.css";
 
 

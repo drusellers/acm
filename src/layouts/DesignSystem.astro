@@ -1,0 +1,57 @@
+---
+import Layout from "./Layout.astro";
+
+interface Props {
+	seo?: {
+		title: string;
+		description?: string;
+		image?: string;
+	};
+}
+
+const { seo } = Astro.props;
+
+const navItems = [
+	{ href: "/design-system", label: "Overview" },
+	{ href: "/design-system/colors", label: "Colors" },
+	{ href: "/design-system/typography", label: "Typography" },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<Layout seo={seo}>
+	<div class="space-y-6">
+		<!-- Title -->
+		<h1 class="text-3xl font-bold text-[var(--text-primary)]">Design System</h1>
+
+		<!-- Navigation -->
+		<nav class="border-y border-[var(--border-default)] py-1">
+			<div class="flex gap-1">
+				{
+					navItems.map((item) => {
+						const isActive = currentPath === item.href || (item.href !== "/design-system" && currentPath.startsWith(`${item.href}/`));
+						return (
+							<a
+								href={item.href}
+								class:list={[
+									"px-4 py-2 text-sm font-medium rounded-md transition-colors",
+									isActive
+										? "bg-[var(--surface-2)] text-[var(--text-primary)]"
+										: "text-[var(--text-secondary)] hover:bg-[var(--surface-1)] hover:text-[var(--text-primary)]",
+								]}
+							>
+								{item.label}
+							</a>
+						);
+						})
+					}
+				</div>
+			</nav>
+
+		<!-- Main Content -->
+		<main>
+			<slot />
+		</main>
+	</div>
+</Layout>

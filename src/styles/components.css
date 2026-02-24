@@ -1,0 +1,47 @@
+/* LAYER 4: COMPONENT TOKENS */
+/* Maps semantic tokens to component-specific variables */
+
+@layer components {
+  :root {
+    /* Button Component */
+    --button-bg-primary: var(--accent-brand);
+    --button-text-primary: var(--text-inverse);
+    --button-bg-secondary: var(--surface-2);
+    --button-text-secondary: var(--text-primary);
+    --button-bg-ghost: transparent;
+    --button-text-ghost: var(--accent-brand);
+    --button-border-ghost: var(--border-default);
+
+    /* Card Component */
+    --card-bg: var(--surface-1);
+    --card-border: var(--border-default);
+    --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+
+    /* Input Component */
+    --input-bg: var(--surface-0);
+    --input-border: var(--border-default);
+    --input-border-focus: var(--accent-brand);
+    --input-text: var(--text-primary);
+    --input-placeholder: var(--text-muted);
+
+    /* Navigation */
+    --nav-bg: var(--surface-1);
+    --nav-text: var(--text-secondary);
+    --nav-text-active: var(--text-primary);
+
+    /* Link */
+    --link-color: var(--accent-brand);
+    --link-hover: var(--color-blue-700);
+
+    /* Code/Preformatted */
+    --code-bg: var(--surface-2);
+    --code-text: var(--text-primary);
+    --code-border: var(--border-subtle);
+  }
+
+  /* Dark theme overrides for component tokens */
+  .dark {
+    --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    --link-hover: var(--color-blue-300);
+  }
+}
