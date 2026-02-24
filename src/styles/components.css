@@ -44,4 +44,15 @@
     --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
     --link-hover: var(--color-blue-300);
   }
+
+  /* Action Button Component */
+  :root {
+    --action-primary-bg: var(--color-blue-400);
+    --action-primary-text: var(--color-blue-100);
+  }
+
+  .dark {
+    --action-primary-bg: var(--color-blue-700);
+    --action-primary-text: var(--color-blue-300);
+  }
 }

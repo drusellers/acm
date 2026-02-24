@@ -5,10 +5,12 @@ const allProjects: CollectionEntry<"projects">[] =
 	await getCollection("projects");
 ---
 <Layout>
-    aoeu
+    <div class="text-(--text-primary)">
+        Projects
+    </div>
     <div>
         {allProjects.map((p) => {
-            return <div>{p.data.title}</div>
+            return <div class="text-(--text-primary)">{p.data.title}</div>
         })}
     </>
 </Layout>

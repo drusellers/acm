@@ -44,6 +44,19 @@ if (props.seo?.image) {
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
 		<meta property="og:image" content={image} />
+
+		<!-- Prevent FOUC by setting theme immediately -->
+		<script is:inline>
+			(function() {
+				const theme = localStorage.getItem('theme');
+				const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+				if (theme === 'dark' || (!theme && systemDark)) {
+					document.documentElement.classList.add('dark');
+					// Store detected value for next page load
+					localStorage.setItem('theme', 'dark');
+				}
+			})();
+		</script>
 	</head>
 	<body class="bg-surface-bright-0 dark:bg-surface-dark-0 relative">
 		<!-- neat -->

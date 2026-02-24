@@ -104,6 +104,10 @@
 	  text-underline-offset: 2px;
 	}
 
+	.dark a {
+		color: var(--color-blue-300);
+	}
+
 	a:not(:is(:hover, :focus)) {
 	  text-decoration-color:
 			  color-mix(in srgb, currentColor, transparent 75%);
