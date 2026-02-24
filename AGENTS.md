@@ -1,2 +1,6 @@
 - Use Biome for all code formatting and linting in this repository.
 - you need to use `nvm use` before to get the correct version is specified in .nvmrc
+- Tailwind setup lives in `src/styles/global.css` and `src/styles/colors.css` using `@import "tailwindcss"`, `@theme`, and `@layer` directives (no separate `tailwind.config.*`).
+- Custom colors are defined as CSS variables in `src/styles/colors.css` (bright/figment/underthought/dim, legal, brightGreen, dimGreen, and surface tokens).
+- Layering order: `@layer tokens` in `src/styles/global.css` for semantic tokens and dark mapping, `@layer base` for base styles and colors, and `@layer components` in `src/styles/components.css` for component tokens.
+- Avoid string concatenation/interpolation for Tailwind class names; Tailwind won't see them during build.

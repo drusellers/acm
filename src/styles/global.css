@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "./colors.css";
 
 /* class based toggle */
 @custom-variant dark (&:where(.dark, .dark *));
@@ -12,24 +13,18 @@
     --surface-0: var(--color-surface-light-0);
     --surface-1: var(--color-surface-light-1);
     --surface-2: var(--color-surface-light-2);
-    --surface-3: var(--color-bright-200);
-    --surface-4: var(--color-bright-300);
+    --surface-3: var(--color-figment-200);
+    --surface-4: var(--color-figment-300);
 
     /* Text colors */
-    --text-primary: var(--color-bright-950);
-    --text-secondary: var(--color-bright-700);
-    --text-muted: var(--color-bright-500);
-    --text-inverse: var(--color-bright-50);
+    --text-primary: var(--color-figment-950);
+    --text-secondary: var(--color-figment-700);
+    --text-muted: var(--color-figment-500);
+    --text-inverse: var(--color-figment-50);
 
     /* Borders */
-    --border-default: var(--color-bright-300);
-    --border-subtle: var(--color-bright-200);
-
-    /* Accents */
-    --accent-brand: var(--color-blue-600);
-    --accent-danger: var(--color-red-600);
-    --accent-success: var(--color-brightGreen-600);
-    --accent-warning: var(--color-amber-500);
+    --border-default: var(--color-figment-300);
+    --border-subtle: var(--color-figment-200);
   }
 
   /* LAYER 3: CONTEXTUAL TOKENS - Dark theme mapping */
@@ -40,62 +35,17 @@
     --surface-3: #0d2d47;
     --surface-4: #103552;
 
-    --text-primary: var(--color-dim-50);
-    --text-secondary: var(--color-dim-300);
-    --text-muted: var(--color-dim-500);
-    --text-inverse: var(--color-dim-950);
+    --text-primary: var(--color-underthought-50);
+    --text-secondary: var(--color-underthought-300);
+    --text-muted: var(--color-underthought-500);
+    --text-inverse: var(--color-underthought-950);
 
     --border-default: #1a4a6e;
     --border-subtle: #0d2d47;
-
-    --accent-brand: var(--color-blue-400);
-    --accent-danger: var(--color-red-400);
-    --accent-success: var(--color-dimGreen-400);
-    --accent-warning: var(--color-amber-400);
   }
 }
 
 @layer base {
-	/* expose brightGreen and dimGreen as CSS custom properties for the design system */
-	:root {
-		--color-brightGreen-50: #ecfdf5;
-		--color-brightGreen-100: #d1fae5;
-		--color-brightGreen-200: #a7f3d0;
-		--color-brightGreen-300: #6ee7b7;
-		--color-brightGreen-400: #34d399;
-		--color-brightGreen-500: #10b981;
-		--color-brightGreen-600: #059669;
-		--color-brightGreen-700: #047857;
-		--color-brightGreen-800: #065f46;
-		--color-brightGreen-900: #064e3b;
-		--color-brightGreen-950: #022c22;
-
-		--color-dimGreen-50: #f0fdf4;
-		--color-dimGreen-100: #dcfce7;
-		--color-dimGreen-200: #bbf7d0;
-		--color-dimGreen-300: #86efac;
-		--color-dimGreen-400: #4ade80;
-		--color-dimGreen-500: #22c55e;
-		--color-dimGreen-600: #16a34a;
-		--color-dimGreen-700: #15803d;
-		--color-dimGreen-800: #166534;
-		--color-dimGreen-900: #14532d;
-		--color-dimGreen-950: #052e16;
-
-		/* Legal (Amber) colors */
-		--color-legal-50: #fffbeb;
-		--color-legal-100: #fef3c7;
-		--color-legal-200: #fde68a;
-		--color-legal-300: #fcd34d;
-		--color-legal-400: #fbbf24;
-		--color-legal-500: #f59e0b;
-		--color-legal-600: #d97706;
-		--color-legal-700: #b45309;
-		--color-legal-800: #92400e;
-		--color-legal-900: #78350f;
-		--color-legal-950: #451a03;
-	}
-
 	/* start my base */
 	/* links: https://frontendmasters.com/blog/chilled-out-text-underlines/ */
 	a {
@@ -118,81 +68,6 @@
 	/* the default font */
 	--font-sans: "Open Sans Variable";
 	--font-headings: "Outfit Variable";
-
-	/* background colors for light mode */
-	/* a blue tinted gray */
-	--color-bright-50: var(--color-slate-50);
-	--color-bright-100: var(--color-slate-100);
-	--color-bright-200: var(--color-slate-200);
-	--color-bright-300: var(--color-slate-300);
-	--color-bright-400: var(--color-slate-400);
-	--color-bright-500: var(--color-slate-500);
-	--color-bright-600: var(--color-slate-600);
-	--color-bright-700: var(--color-slate-700);
-	--color-bright-800: var(--color-slate-800);
-	--color-bright-900: var(--color-slate-900);
-	--color-bright-950: var(--color-slate-950);
-
-	/* background colors for dark mode */
-	/* cooler than stone */
-	--color-dim-50: var(--color-zinc-50);
-	--color-dim-100: var(--color-zinc-100);
-	--color-dim-200: var(--color-zinc-200);
-	--color-dim-300: var(--color-zinc-300);
-	--color-dim-400: var(--color-zinc-400);
-	--color-dim-500: var(--color-zinc-500);
-	--color-dim-600: var(--color-zinc-600);
-	--color-dim-700: var(--color-zinc-700);
-	--color-dim-800: var(--color-zinc-800);
-	--color-dim-900: var(--color-zinc-900);
-	--color-dim-950: var(--color-zinc-950);
-
-	--color-legal-50: var(--color-amber-50);
-	--color-legal-100: var(--color-amber-100);
-	--color-legal-200: var(--color-amber-200);
-	--color-legal-300: var(--color-amber-300);
-	--color-legal-400: var(--color-amber-400);
-	--color-legal-500: var(--color-amber-500);
-	--color-legal-600: var(--color-amber-600);
-	--color-legal-700: var(--color-amber-700);
-	--color-legal-800: var(--color-amber-800);
-	--color-legal-900: var(--color-amber-900);
-	--color-legal-950: var(--color-amber-950);
-
-	/* brightGreen - cool emerald for light mode */
-	--color-brightGreen-50: #ecfdf5;
-	--color-brightGreen-100: #d1fae5;
-	--color-brightGreen-200: #a7f3d0;
-	--color-brightGreen-300: #6ee7b7;
-	--color-brightGreen-400: #34d399;
-	--color-brightGreen-500: #10b981;
-	--color-brightGreen-600: #059669;
-	--color-brightGreen-700: #047857;
-	--color-brightGreen-800: #065f46;
-	--color-brightGreen-900: #064e3b;
-	--color-brightGreen-950: #022c22;
-
-	/* dimGreen - muted emerald for dark mode */
-	--color-dimGreen-50: #f0fdf4;
-	--color-dimGreen-100: #dcfce7;
-	--color-dimGreen-200: #bbf7d0;
-	--color-dimGreen-300: #86efac;
-	--color-dimGreen-400: #4ade80;
-	--color-dimGreen-500: #22c55e;
-	--color-dimGreen-600: #16a34a;
-	--color-dimGreen-700: #15803d;
-	--color-dimGreen-800: #166534;
-	--color-dimGreen-900: #14532d;
-	--color-dimGreen-950: #052e16;
-
-	/* surface colors */
-	--color-surface-light-0: var(--color-bright-50);
-	--color-surface-light-1: var(--color-bright-100);
-	--color-surface-light-2: var(--color-bright-300);
-
-	--color-surface-dark-0: #040e18;
-	--color-surface-dark-1: #061929;
-	--color-surface-dark-2: #09243b; /* starting point */
 }
 
 /* LAYER 4: COMPONENT TOKENS */

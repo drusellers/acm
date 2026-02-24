@@ -41,7 +41,7 @@ export default function Choices() {
 					<div
 						key={c}
 						className={
-							"flex items-center justify-center text-xs rounded  bg-white dark:bg-dim-800 font-mono px-4 py-2 hover:bg-blue-100"
+							"flex items-center justify-center text-xs rounded  bg-white dark:bg-underthought-800 font-mono px-4 py-2 hover:bg-blue-100"
 						}
 					>
 						{c}

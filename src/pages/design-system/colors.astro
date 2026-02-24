@@ -1,12 +1,38 @@
 ---
 import DesignSystemLayout from "../../layouts/DesignSystem.astro";
+import CardChip from "../../components/CardChip.astro";
 
-const primitiveScales = [
-  { name: "bright", description: "Blue-tinted gray scale (slate) for light mode" },
-  { name: "dim", description: "Cool neutral gray scale (zinc) for dark mode" },
-  { name: "legal", description: "Amber/warning scale for legal notices" },
-  { name: "brightGreen", description: "Cool emerald greens for light mode accents" },
-  { name: "dimGreen", description: "Muted emerald greens for dark mode accents" },
+const colorScales = [
+  { 
+    name: "figment", 
+    title: "Figment Scale", 
+    description: "Light theme color scale based on slate",
+    classes: ['bg-figment-50', 'bg-figment-100', 'bg-figment-200', 'bg-figment-300', 'bg-figment-400', 'bg-figment-500', 'bg-figment-600', 'bg-figment-700', 'bg-figment-800', 'bg-figment-900', 'bg-figment-950']
+  },
+  { 
+    name: "underthought", 
+    title: "Underthought Scale", 
+    description: "Dark theme color scale with deep blues",
+    classes: ['bg-underthought-50', 'bg-underthought-100', 'bg-underthought-200', 'bg-underthought-300', 'bg-underthought-400', 'bg-underthought-500', 'bg-underthought-600', 'bg-underthought-700', 'bg-underthought-800', 'bg-underthought-900', 'bg-underthought-950']
+  },
+  { 
+    name: "legal", 
+    title: "Legal Scale", 
+    description: "Amber/warning colors for legal notices and warnings",
+    classes: ['bg-legal-50', 'bg-legal-100', 'bg-legal-200', 'bg-legal-300', 'bg-legal-400', 'bg-legal-500', 'bg-legal-600', 'bg-legal-700', 'bg-legal-800', 'bg-legal-900', 'bg-legal-950']
+  },
+  { 
+    name: "brightGreen", 
+    title: "BrightGreen Scale", 
+    description: "Cool emerald greens for light mode surfaces and accents",
+    classes: ['bg-brightGreen-50', 'bg-brightGreen-100', 'bg-brightGreen-200', 'bg-brightGreen-300', 'bg-brightGreen-400', 'bg-brightGreen-500', 'bg-brightGreen-600', 'bg-brightGreen-700', 'bg-brightGreen-800', 'bg-brightGreen-900', 'bg-brightGreen-950']
+  },
+  { 
+    name: "dimGreen", 
+    title: "DimGreen Scale", 
+    description: "Muted emerald greens for dark mode surfaces and accents",
+    classes: ['bg-dimGreen-50', 'bg-dimGreen-100', 'bg-dimGreen-200', 'bg-dimGreen-300', 'bg-dimGreen-400', 'bg-dimGreen-500', 'bg-dimGreen-600', 'bg-dimGreen-700', 'bg-dimGreen-800', 'bg-dimGreen-900', 'bg-dimGreen-950']
+  },
 ];
 ---
 
@@ -21,7 +47,7 @@ const primitiveScales = [
       <p class="text-[var(--text-secondary)] mb-6">Base color scales used throughout the design system</p>
       
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        {primitiveScales.map((scale) => (
+        {colorScales.map((scale) => (
           <div class="bg-[var(--surface-1)] rounded-lg border border-[var(--border-default)] p-4">
             <h3 class="text-lg font-bold text-[var(--text-primary)] mb-1">{scale.name}</h3>
             <p class="text-[var(--text-secondary)] text-sm">{scale.description}</p>
@@ -33,68 +59,19 @@ const primitiveScales = [
       </div>
     </section>
 
-    <!-- BrightGreen Scale -->
-    <section>
-      <h2 class="text-2xl font-bold text-[var(--text-primary)] mb-4">BrightGreen Scale</h2>
-      <p class="text-[var(--text-secondary)] mb-6">Cool emerald greens for light mode surfaces and accents</p>
-      
-      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4">
-        {[50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950].map((shade) => (
-          <div class="bg-[var(--surface-1)] rounded-lg border border-[var(--border-default)] overflow-hidden">
-            <div 
-              class="h-24 w-full"
-              style={`background-color: var(--color-brightGreen-${shade})`}
-            />
-            <div class="p-3 space-y-1">
-              <div class="text-sm font-mono font-bold text-[var(--text-primary)]">brightGreen-{shade}</div>
-              <div class="text-xs text-[var(--text-muted)] font-mono">--color-brightGreen-{shade}</div>
-            </div>
-          </div>
-        ))}
-      </div>
-    </section>
+    <!-- Color Scales -->
+    {colorScales.map((scale) => (
+      <section>
+        <h2 class="text-2xl font-bold text-[var(--text-primary)] mb-4">{scale.title}</h2>
+        <p class="text-[var(--text-secondary)] mb-6">{scale.description}</p>
 
-    <!-- DimGreen Scale -->
-    <section>
-      <h2 class="text-2xl font-bold text-[var(--text-primary)] mb-4">DimGreen Scale</h2>
-      <p class="text-[var(--text-secondary)] mb-6">Muted emerald greens for dark mode surfaces and accents</p>
-      
-      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4">
-        {[50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950].map((shade) => (
-          <div class="bg-[var(--surface-1)] rounded-lg border border-[var(--border-default)] overflow-hidden">
-            <div 
-              class="h-24 w-full"
-              style={`background-color: var(--color-dimGreen-${shade})`}
-            />
-            <div class="p-3 space-y-1">
-              <div class="text-sm font-mono font-bold text-[var(--text-primary)]">dimGreen-{shade}</div>
-              <div class="text-xs text-[var(--text-muted)] font-mono">--color-dimGreen-{shade}</div>
-            </div>
-          </div>
-        ))}
-      </div>
-    </section>
-
-    <!-- Legal (Amber) Scale -->
-    <section>
-      <h2 class="text-2xl font-bold text-[var(--text-primary)] mb-4">Legal Scale</h2>
-      <p class="text-[var(--text-secondary)] mb-6">Amber/warning colors for legal notices and warnings</p>
-      
-      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4">
-        {[50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950].map((shade) => (
-          <div class="bg-[var(--surface-1)] rounded-lg border border-[var(--border-default)] overflow-hidden">
-            <div 
-              class="h-24 w-full"
-              style={`background-color: var(--color-legal-${shade})`}
-            />
-            <div class="p-3 space-y-1">
-              <div class="text-sm font-mono font-bold text-[var(--text-primary)]">legal-{shade}</div>
-              <div class="text-xs text-[var(--text-muted)] font-mono">--color-legal-{shade}</div>
-            </div>
-          </div>
-        ))}
-      </div>
-    </section>
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4">
+          {scale.classes.map((className) => (
+            <CardChip className={className} />
+          ))}
+        </div>
+      </section>
+    ))}
 
     <!-- Usage Examples -->
     <section>
@@ -104,8 +81,10 @@ const primitiveScales = [
         <div class="space-y-4">
           <h3 class="font-bold text-[var(--text-secondary)]">Tailwind Classes</h3>
           <div class="bg-[var(--surface-1)] p-4 rounded-lg font-mono text-sm text-[var(--text-primary)] space-y-2 border border-[var(--border-default)]">
-            <div>bg-bright-500</div>
-            <div>bg-dim-300</div>
+            <div>bg-figment-500</div>
+            <div>bg-underthought-300</div>
+            <div>bg-figment-500</div>
+            <div>bg-underthought-500</div>
             <div>text-legal-600</div>
             <div>bg-brightGreen-500</div>
             <div>text-dimGreen-400</div>
@@ -115,8 +94,10 @@ const primitiveScales = [
         <div class="space-y-4">
           <h3 class="font-bold text-[var(--text-secondary)]">CSS Variables</h3>
           <div class="bg-[var(--surface-1)] p-4 rounded-lg font-mono text-sm text-[var(--text-primary)] space-y-2 border border-[var(--border-default)]">
-            <div>var(--color-bright-500)</div>
-            <div>var(--color-dim-300)</div>
+            <div>var(--color-figment-500)</div>
+            <div>var(--color-underthought-300)</div>
+            <div>var(--color-figment-500)</div>
+            <div>var(--color-underthought-500)</div>
             <div>var(--color-legal-600)</div>
             <div>var(--color-brightGreen-500)</div>
             <div>var(--color-dimGreen-400)</div>

@@ -1,0 +1,23 @@
+---
+interface Props {
+	className: string;
+}
+
+const { className } = Astro.props;
+
+const parts = className.split('-');
+const colorName = parts.slice(1, -1).join('-');
+const shade = parts[parts.length - 1];
+---
+
+<div class="bg-[var(--surface-1)] rounded-lg border border-[var(--border-default)] overflow-hidden">
+	<div class:list={["h-24 w-full", className]} />
+	<div class="p-3 space-y-1">
+		<div class="text-sm font-mono font-bold text-[var(--text-primary)]">
+			{colorName}-{shade}
+		</div>
+		<div class="text-xs text-[var(--text-muted)] font-mono">
+			--color-{colorName}-{shade}
+		</div>
+	</div>
+</div>

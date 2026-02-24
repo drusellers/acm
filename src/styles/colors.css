@@ -1,0 +1,121 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    /* brightGreen - cool emerald for light mode */
+    --color-brightGreen-50: #ecfdf5;
+    --color-brightGreen-100: #d1fae5;
+    --color-brightGreen-200: #a7f3d0;
+    --color-brightGreen-300: #6ee7b7;
+    --color-brightGreen-400: #34d399;
+    --color-brightGreen-500: #10b981;
+    --color-brightGreen-600: #059669;
+    --color-brightGreen-700: #047857;
+    --color-brightGreen-800: #065f46;
+    --color-brightGreen-900: #064e3b;
+    --color-brightGreen-950: #022c22;
+
+    /* dimGreen - muted emerald for dark mode */
+    --color-dimGreen-50: #f0fdf4;
+    --color-dimGreen-100: #dcfce7;
+    --color-dimGreen-200: #bbf7d0;
+    --color-dimGreen-300: #86efac;
+    --color-dimGreen-400: #4ade80;
+    --color-dimGreen-500: #22c55e;
+    --color-dimGreen-600: #16a34a;
+    --color-dimGreen-700: #15803d;
+    --color-dimGreen-800: #166534;
+    --color-dimGreen-900: #14532d;
+    --color-dimGreen-950: #052e16;
+
+    /* Legal (Amber) colors */
+    --color-legal-50: #fffbeb;
+    --color-legal-100: #fef3c7;
+    --color-legal-200: #fde68a;
+    --color-legal-300: #fcd34d;
+    --color-legal-400: #fbbf24;
+    --color-legal-500: #f59e0b;
+    --color-legal-600: #d97706;
+    --color-legal-700: #b45309;
+    --color-legal-800: #92400e;
+    --color-legal-900: #78350f;
+    --color-legal-950: #451a03;
+  }
+}
+
+@theme {
+  /* figment - light theme color scale (slate palette) */
+  --color-figment-50: #f8fafc;
+  --color-figment-100: #f1f5f9;
+  --color-figment-200: #e2e8f0;
+  --color-figment-300: #cbd5e1;
+  --color-figment-400: #94a3b8;
+  --color-figment-500: #64748b;
+  --color-figment-600: #475569;
+  --color-figment-700: #334155;
+  --color-figment-800: #1e293b;
+  --color-figment-900: #0f172a;
+  --color-figment-950: #020617;
+
+  /* underthought - dark theme color scale */
+  --color-underthought-50: #e8f4fd;
+  --color-underthought-100: #b8dffa;
+  --color-underthought-200: #88caf7;
+  --color-underthought-300: #58b5f4;
+  --color-underthought-400: #28a0f1;
+  --color-underthought-500: #0f8de0;
+  --color-underthought-600: #0c6eb0;
+  --color-underthought-700: #094f80;
+  --color-underthought-800: #063050;
+  --color-underthought-900: #040e18;
+  --color-underthought-950: #030b13;
+
+
+  /* legal - amber warning palette */
+  --color-legal-50: #fffbeb;
+  --color-legal-100: #fef3c7;
+  --color-legal-200: #fde68a;
+  --color-legal-300: #fcd34d;
+  --color-legal-400: #fbbf24;
+  --color-legal-500: #f59e0b;
+  --color-legal-600: #d97706;
+  --color-legal-700: #b45309;
+  --color-legal-800: #92400e;
+  --color-legal-900: #78350f;
+  --color-legal-950: #451a03;
+
+  /* brightGreen - cool emerald for light mode */
+  --color-brightGreen-50: #ecfdf5;
+  --color-brightGreen-100: #d1fae5;
+  --color-brightGreen-200: #a7f3d0;
+  --color-brightGreen-300: #6ee7b7;
+  --color-brightGreen-400: #34d399;
+  --color-brightGreen-500: #10b981;
+  --color-brightGreen-600: #059669;
+  --color-brightGreen-700: #047857;
+  --color-brightGreen-800: #065f46;
+  --color-brightGreen-900: #064e3b;
+  --color-brightGreen-950: #022c22;
+
+  /* dimGreen - muted emerald for dark mode */
+  --color-dimGreen-50: #f0fdf4;
+  --color-dimGreen-100: #dcfce7;
+  --color-dimGreen-200: #bbf7d0;
+  --color-dimGreen-300: #86efac;
+  --color-dimGreen-400: #4ade80;
+  --color-dimGreen-500: #22c55e;
+  --color-dimGreen-600: #16a34a;
+  --color-dimGreen-700: #15803d;
+  --color-dimGreen-800: #166534;
+  --color-dimGreen-900: #14532d;
+  --color-dimGreen-950: #052e16;
+
+  /* surface colors */
+  --color-surface-light-0: var(--color-figment-50);
+  --color-surface-light-1: var(--color-figment-100);
+  --color-surface-light-2: var(--color-figment-300);
+
+  --color-surface-dark-0: var(--color-underthought-950);
+  --color-surface-dark-1: var(--color-underthought-900);
+  --color-surface-dark-2: var(--color-underthought-800);
+}
