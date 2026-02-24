@@ -9,12 +9,12 @@ import tailwindcss from "@tailwindcss/vite";
 
 // https://astro.build/config
 export default defineConfig({
-	integrations: [mdx(), react()],
+  integrations: [mdx(), react()],
 
-	server: {
-		port: 3000
-	},
-	vite: {
-		plugins: [tailwindcss()],
-	},
+  server: {
+    port: parseInt(process.env.PORT || "3000"),
+  },
+  vite: {
+    plugins: [tailwindcss()],
+  },
 });

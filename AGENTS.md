@@ -1,0 +1,2 @@
+- Use Biome for all code formatting and linting in this repository.
+- you need to use `nvm use` before to get the correct version is specified in .nvmrc

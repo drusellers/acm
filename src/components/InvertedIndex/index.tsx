@@ -14,7 +14,7 @@ type Doc = {
 export default function InvertedIndex() {
 	const [docId, setDocId] = useState(0);
 	const [text, setText] = useState("");
-	const [docs, setDocs] = useState<Doc[]>([]);
+	const [docs, _setDocs] = useState<Doc[]>([]);
 	const [index, setIndex] = useState<Map<string, Set<number>>>(
 		new Map<string, Set<number>>(),
 	);
