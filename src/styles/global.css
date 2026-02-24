@@ -28,7 +28,7 @@
     /* Accents */
     --accent-brand: var(--color-blue-600);
     --accent-danger: var(--color-red-600);
-    --accent-success: var(--color-green-600);
+    --accent-success: var(--color-brightGreen-600);
     --accent-warning: var(--color-amber-500);
   }
 
@@ -50,12 +50,52 @@
 
     --accent-brand: var(--color-blue-400);
     --accent-danger: var(--color-red-400);
-    --accent-success: var(--color-green-400);
+    --accent-success: var(--color-dimGreen-400);
     --accent-warning: var(--color-amber-400);
   }
 }
 
-@layer base {  
+@layer base {
+	/* expose brightGreen and dimGreen as CSS custom properties for the design system */
+	:root {
+		--color-brightGreen-50: #ecfdf5;
+		--color-brightGreen-100: #d1fae5;
+		--color-brightGreen-200: #a7f3d0;
+		--color-brightGreen-300: #6ee7b7;
+		--color-brightGreen-400: #34d399;
+		--color-brightGreen-500: #10b981;
+		--color-brightGreen-600: #059669;
+		--color-brightGreen-700: #047857;
+		--color-brightGreen-800: #065f46;
+		--color-brightGreen-900: #064e3b;
+		--color-brightGreen-950: #022c22;
+
+		--color-dimGreen-50: #f0fdf4;
+		--color-dimGreen-100: #dcfce7;
+		--color-dimGreen-200: #bbf7d0;
+		--color-dimGreen-300: #86efac;
+		--color-dimGreen-400: #4ade80;
+		--color-dimGreen-500: #22c55e;
+		--color-dimGreen-600: #16a34a;
+		--color-dimGreen-700: #15803d;
+		--color-dimGreen-800: #166534;
+		--color-dimGreen-900: #14532d;
+		--color-dimGreen-950: #052e16;
+
+		/* Legal (Amber) colors */
+		--color-legal-50: #fffbeb;
+		--color-legal-100: #fef3c7;
+		--color-legal-200: #fde68a;
+		--color-legal-300: #fcd34d;
+		--color-legal-400: #fbbf24;
+		--color-legal-500: #f59e0b;
+		--color-legal-600: #d97706;
+		--color-legal-700: #b45309;
+		--color-legal-800: #92400e;
+		--color-legal-900: #78350f;
+		--color-legal-950: #451a03;
+	}
+
 	/* start my base */
 	/* links: https://frontendmasters.com/blog/chilled-out-text-underlines/ */
 	a {
@@ -63,7 +103,7 @@
 	  text-decoration: underline;
 	  text-underline-offset: 2px;
 	}
-  
+
 	a:not(:is(:hover, :focus)) {
 	  text-decoration-color:
 			  color-mix(in srgb, currentColor, transparent 75%);
@@ -114,6 +154,32 @@
 	--color-legal-800: var(--color-amber-800);
 	--color-legal-900: var(--color-amber-900);
 	--color-legal-950: var(--color-amber-950);
+
+	/* brightGreen - cool emerald for light mode */
+	--color-brightGreen-50: #ecfdf5;
+	--color-brightGreen-100: #d1fae5;
+	--color-brightGreen-200: #a7f3d0;
+	--color-brightGreen-300: #6ee7b7;
+	--color-brightGreen-400: #34d399;
+	--color-brightGreen-500: #10b981;
+	--color-brightGreen-600: #059669;
+	--color-brightGreen-700: #047857;
+	--color-brightGreen-800: #065f46;
+	--color-brightGreen-900: #064e3b;
+	--color-brightGreen-950: #022c22;
+
+	/* dimGreen - muted emerald for dark mode */
+	--color-dimGreen-50: #f0fdf4;
+	--color-dimGreen-100: #dcfce7;
+	--color-dimGreen-200: #bbf7d0;
+	--color-dimGreen-300: #86efac;
+	--color-dimGreen-400: #4ade80;
+	--color-dimGreen-500: #22c55e;
+	--color-dimGreen-600: #16a34a;
+	--color-dimGreen-700: #15803d;
+	--color-dimGreen-800: #166534;
+	--color-dimGreen-900: #14532d;
+	--color-dimGreen-950: #052e16;
 
 	/* surface colors */
 	--color-surface-light-0: var(--color-bright-50);

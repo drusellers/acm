@@ -1,0 +1,159 @@
+---
+import DesignSystemLayout from "../../layouts/DesignSystem.astro";
+
+interface TokenSwatch {
+  name: string;
+  variable: string;
+  description: string;
+  darkMapping?: string;
+}
+
+const surfaceTokens: TokenSwatch[] = [
+  { name: "surface-0", variable: "--surface-0", description: "Main background, page canvas", darkMapping: "--surface-0" },
+  { name: "surface-1", variable: "--surface-1", description: "Elevated surfaces, cards", darkMapping: "--surface-1" },
+  { name: "surface-2", variable: "--surface-2", description: "Higher elevation, hover states", darkMapping: "--surface-2" },
+  { name: "surface-3", variable: "--surface-3", description: "Pressed states, borders", darkMapping: "--surface-3" },
+  { name: "surface-4", variable: "--surface-4", description: "Maximum elevation, dividers", darkMapping: "--surface-4" },
+];
+
+const textTokens: TokenSwatch[] = [
+  { name: "text-primary", variable: "--text-primary", description: "Headings, primary content" },
+  { name: "text-secondary", variable: "--text-secondary", description: "Body text, descriptions" },
+  { name: "text-muted", variable: "--text-muted", description: "Placeholders, hints, disabled" },
+  { name: "text-inverse", variable: "--text-inverse", description: "Text on colored backgrounds" },
+];
+
+const borderTokens: TokenSwatch[] = [
+  { name: "border-default", variable: "--border-default", description: "Standard borders, inputs" },
+  { name: "border-subtle", variable: "--border-subtle", description: "Dividers, separators" },
+];
+---
+
+<DesignSystemLayout seo={{ title: "Design System - Semantic Tokens" }}>
+  <div class="space-y-12">
+    <!-- Page Description -->
+    <p class="text-[var(--text-secondary)] text-lg">
+      Semantic tokens map primitive colors to meaningful purposes. These tokens are theme-aware 
+      and switch between light/dark modes automatically.
+    </p>
+
+    <!-- Dark Mode Toggle -->
+    <div class="flex items-center gap-4 p-4 bg-[var(--surface-1)] rounded-lg">
+      <span class="text-[var(--text-secondary)]">Theme:</span>
+      <button 
+        id="theme-toggle"
+        class="px-4 py-2 rounded-md font-medium transition-colors"
+        style="background: var(--button-bg-secondary); color: var(--button-text-secondary);"
+      >
+        Toggle Dark Mode
+      </button>
+      <span id="current-theme" class="text-[var(--text-muted)] text-sm">Light</span>
+    </div>
+
+    <!-- Surface Tokens -->
+    <section>
+      <h2 class="text-2xl font-bold text-[var(--text-primary)] mb-4">Surface Tokens</h2>
+      <p class="text-[var(--text-secondary)] mb-6">
+        Background colors for different elevation levels. Use with 
+        <code class="bg-[var(--surface-2)] px-1 rounded">bg-surface-*</code>
+      </p>
+      
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+        {surfaceTokens.map((token) => (
+          <div class="bg-[var(--surface-1)] rounded-lg border border-[var(--border-default)] overflow-hidden">
+            <div 
+              class="h-24 w-full"
+              style={`background-color: var(${token.variable})`}
+            />
+            <div class="p-3 space-y-1">
+              <div class="text-sm font-mono font-bold text-[var(--text-primary)]">{token.name}</div>
+              <div class="text-xs text-[var(--text-muted)] font-mono">{token.variable}</div>
+              <div class="text-xs text-[var(--text-secondary)] pt-1">{token.description}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Text Tokens -->
+    <section>
+      <h2 class="text-2xl font-bold text-[var(--text-primary)] mb-4">Text Tokens</h2>
+      <p class="text-[var(--text-secondary)] mb-6">
+        Semantic text colors for content hierarchy. Use with 
+        <code class="bg-[var(--surface-2)] px-1 rounded">text-text-*</code>
+      </p>
+      
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        {textTokens.map((token) => (
+          <div class="bg-[var(--surface-1)] rounded-lg border border-[var(--border-default)] overflow-hidden">
+            <div 
+              class="h-20 w-full flex items-center justify-center text-3xl font-bold"
+              style={`background-color: ${token.name === 'text-inverse' ? 'var(--surface-4)' : 'var(--surface-0)'}; color: var(${token.variable})`}
+            >
+              Aa
+            </div>
+            <div class="p-3 space-y-1">
+              <div class="text-sm font-mono font-bold text-[var(--text-primary)]">{token.name}</div>
+              <div class="text-xs text-[var(--text-muted)] font-mono">{token.variable}</div>
+              <div class="text-xs text-[var(--text-secondary)] pt-1">{token.description}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Border Tokens -->
+    <section>
+      <h2 class="text-2xl font-bold text-[var(--text-primary)] mb-4">Border Tokens</h2>
+      <p class="text-[var(--text-secondary)] mb-6">
+        Border colors for separation and definition. Use with 
+        <code class="bg-[var(--surface-2)] px-1 rounded">border-border-*</code>
+      </p>
+      
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        {borderTokens.map((token) => (
+          <div class="bg-[var(--surface-1)] rounded-lg border border-[var(--border-default)] overflow-hidden">
+            <div 
+              class="h-20 w-full flex items-center justify-center"
+              style={`background-color: var(--surface-0);`}
+            >
+              <div class="w-16 h-16 rounded" style={`background-color: var(--surface-1); border: 4px solid var(${token.variable})`} />
+            </div>
+            <div class="p-3 space-y-1">
+              <div class="text-sm font-mono font-bold text-[var(--text-primary)]">{token.name}</div>
+              <div class="text-xs text-[var(--text-muted)] font-mono">{token.variable}</div>
+              <div class="text-xs text-[var(--text-secondary)] pt-1">{token.description}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  </div>
+
+  <script>
+    const toggleBtn = document.getElementById('theme-toggle');
+    const themeLabel = document.getElementById('current-theme');
+    const html = document.documentElement;
+
+    const getTheme = () => {
+      if (html.classList.contains('dark')) return 'dark';
+      return 'light';
+    };
+
+    const updateLabel = () => {
+      const current = getTheme();
+      if (themeLabel) {
+        themeLabel.textContent = current === 'dark' ? 'Dark' : 'Light';
+      }
+    };
+
+    toggleBtn?.addEventListener('click', () => {
+      html.classList.toggle('dark');
+      const newTheme = getTheme();
+      localStorage.setItem('theme', newTheme);
+      updateLabel();
+    });
+
+    updateLabel();
+  </script>
+</DesignSystemLayout>

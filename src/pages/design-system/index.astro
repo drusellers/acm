@@ -121,45 +121,40 @@ const sections = [
 			</div>
 		</div>
 
-		<!-- Token Layers -->
+		<!-- Token Architecture -->
 		<div class="bg-[var(--surface-1)] rounded-lg border border-[var(--border-default)] p-6">
 			<h2 class="text-xl font-bold text-[var(--text-primary)] mb-4">Token Architecture</h2>
 
 			<div class="space-y-4">
-				<div class="flex gap-4">
-					<div class="w-24 text-right text-sm text-[var(--text-muted)]">Layer 1</div>
-					<div class="flex-1">
-						<div class="font-medium text-[var(--text-primary)]">Primitives</div>
-						<div class="text-sm text-[var(--text-muted)]">
-							Tailwind defaults: --color-slate-*, --color-zinc-*, etc.
-						</div>
+				<div class="flex items-start gap-4">
+					<div class="w-8 h-8 rounded-full bg-[var(--color-bright-500)] flex items-center justify-center text-white text-sm font-bold">1</div>
+					<div>
+						<h3 class="font-bold text-[var(--text-primary)]">Primitives</h3>
+						<p class="text-[var(--text-secondary)] text-sm">Raw color scales (bright-*, dim-*, legal-*) in global.css @theme block</p>
 					</div>
 				</div>
-				<div class="flex gap-4">
-					<div class="w-24 text-right text-sm text-[var(--text-muted)]">Layer 2</div>
-					<div class="flex-1">
-						<div class="font-medium text-[var(--text-primary)]">Semantic</div>
-						<div class="text-sm text-[var(--text-muted)]">
-							Meaningful names: --surface-0, --text-primary, --accent-brand
-						</div>
+
+				<div class="flex items-start gap-4">
+					<div class="w-8 h-8 rounded-full bg-[var(--color-brightGreen-500)] flex items-center justify-center text-white text-sm font-bold">2</div>
+					<div>
+						<h3 class="font-bold text-[var(--text-primary)]">Semantic</h3>
+						<p class="text-[var(--text-secondary)] text-sm">Meaningful tokens (surface-*, text-*, border-*) mapped to primitives</p>
 					</div>
 				</div>
-				<div class="flex gap-4">
-					<div class="w-24 text-right text-sm text-[var(--text-muted)]">Layer 3</div>
-					<div class="flex-1">
-						<div class="font-medium text-[var(--text-primary)]">Contextual</div>
-						<div class="text-sm text-[var(--text-muted)]">
-							Light/Dark mapping via .dark class
-						</div>
+
+				<div class="flex items-start gap-4">
+					<div class="w-8 h-8 rounded-full bg-[var(--color-legal-500)] flex items-center justify-center text-white text-sm font-bold">3</div>
+					<div>
+						<h3 class="font-bold text-[var(--text-primary)]">Contextual</h3>
+						<p class="text-[var(--text-secondary)] text-sm">Dark mode overrides in .dark selector</p>
 					</div>
 				</div>
-				<div class="flex gap-4">
-					<div class="w-24 text-right text-sm text-[var(--text-muted)]">Layer 4</div>
-					<div class="flex-1">
-						<div class="font-medium text-[var(--text-primary)]">Component</div>
-						<div class="text-sm text-[var(--text-muted)]">
-							Component-specific: --button-bg-primary, --card-bg, etc.
-						</div>
+
+				<div class="flex items-start gap-4">
+					<div class="w-8 h-8 rounded-full bg-[var(--text-muted)] flex items-center justify-center text-white text-sm font-bold">4</div>
+					<div>
+						<h3 class="font-bold text-[var(--text-primary)]">Component</h3>
+						<p class="text-[var(--text-secondary)] text-sm">Specific component tokens in components.css</p>
 					</div>
 				</div>
 			</div>

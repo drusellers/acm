@@ -1,185 +1,95 @@
 ---
 import DesignSystemLayout from "../../layouts/DesignSystem.astro";
 
-interface ColorSwatch {
-  name: string;
-  variable: string;
-  description: string;
-}
-
-const surfaceColors: ColorSwatch[] = [
-  { name: "surface-0", variable: "--surface-0", description: "Main background, page canvas" },
-  { name: "surface-1", variable: "--surface-1", description: "Elevated surfaces, cards" },
-  { name: "surface-2", variable: "--surface-2", description: "Higher elevation, hover states" },
-  { name: "surface-3", variable: "--surface-3", description: "Pressed states, borders" },
-  { name: "surface-4", variable: "--surface-4", description: "Maximum elevation, dividers" },
-];
-
-const textColors: ColorSwatch[] = [
-  { name: "text-primary", variable: "--text-primary", description: "Headings, primary content" },
-  { name: "text-secondary", variable: "--text-secondary", description: "Body text, descriptions" },
-  { name: "text-muted", variable: "--text-muted", description: "Placeholders, hints, disabled" },
-  { name: "text-inverse", variable: "--text-inverse", description: "Text on colored backgrounds" },
-];
-
-const borderColors: ColorSwatch[] = [
-  { name: "border-default", variable: "--border-default", description: "Standard borders, inputs" },
-  { name: "border-subtle", variable: "--border-subtle", description: "Dividers, separators" },
-];
-
-const accentColors: ColorSwatch[] = [
-  { name: "accent-brand", variable: "--accent-brand", description: "Primary brand color, CTAs" },
-  { name: "accent-danger", variable: "--accent-danger", description: "Errors, destructive actions" },
-  { name: "accent-success", variable: "--accent-success", description: "Success states, confirmations" },
-  { name: "accent-warning", variable: "--accent-warning", description: "Warnings, alerts" },
-];
-
-const componentTokens = [
-  { category: "Button", tokens: [
-    { name: "button-bg-primary", desc: "Primary button background" },
-    { name: "button-text-primary", desc: "Primary button text" },
-    { name: "button-bg-secondary", desc: "Secondary button background" },
-    { name: "button-text-secondary", desc: "Secondary button text" },
-  ]},
-  { category: "Card", tokens: [
-    { name: "card-bg", desc: "Card background" },
-    { name: "card-border", desc: "Card border color" },
-    { name: "card-shadow", desc: "Card shadow (static value)" },
-  ]},
-  { category: "Input", tokens: [
-    { name: "input-bg", desc: "Input background" },
-    { name: "input-border", desc: "Input border" },
-    { name: "input-text", desc: "Input text color" },
-    { name: "input-placeholder", desc: "Placeholder text" },
-  ]},
+const primitiveScales = [
+  { name: "bright", description: "Blue-tinted gray scale (slate) for light mode" },
+  { name: "dim", description: "Cool neutral gray scale (zinc) for dark mode" },
+  { name: "legal", description: "Amber/warning scale for legal notices" },
+  { name: "brightGreen", description: "Cool emerald greens for light mode accents" },
+  { name: "dimGreen", description: "Muted emerald greens for dark mode accents" },
 ];
 ---
 
 <DesignSystemLayout seo={{ title: "Design System - Colors" }}>
   <div class="space-y-12">
     <!-- Page Description -->
-    <p class="text-[var(--text-secondary)] text-lg">Color tokens and usage guidelines</p>
+    <p class="text-[var(--text-secondary)] text-lg">Primitive color scales - the foundation of the design system</p>
 
-    <!-- Dark Mode Toggle -->
-    <div class="flex items-center gap-4 p-4 bg-[var(--surface-1)] rounded-lg">
-      <span class="text-[var(--text-secondary)]">Theme:</span>
-      <button 
-        id="theme-toggle"
-        class="px-4 py-2 rounded-md font-medium transition-colors"
-        style="background: var(--button-bg-secondary); color: var(--button-text-secondary);"
-      >
-        Toggle Dark Mode
-      </button>
-      <span id="current-theme" class="text-[var(--text-muted)] text-sm">Light</span>
-    </div>
-
-    <!-- Surface Colors -->
+    <!-- Available Primitive Scales -->
     <section>
-      <h2 class="text-2xl font-bold text-[var(--text-primary)] mb-4">Surface Colors</h2>
-      <p class="text-[var(--text-secondary)] mb-6">Background colors for different elevation levels. Use with <code class="bg-[var(--surface-2)] px-1 rounded">bg-surface-*</code></p>
+      <h2 class="text-2xl font-bold text-[var(--text-primary)] mb-4">Available Primitive Scales</h2>
+      <p class="text-[var(--text-secondary)] mb-6">Base color scales used throughout the design system</p>
       
-      <div class="grid gap-4">
-        {surfaceColors.map((color) => (
-          <div class="flex items-center gap-4 p-4 bg-[var(--surface-1)] rounded-lg border border-[var(--border-default)]">
-            <div 
-              class="w-20 h-20 rounded-lg shadow-sm border border-[var(--border-subtle)]"
-              style={`background-color: var(${color.variable})`}
-            />
-            <div class="flex-1">
-              <div class="flex items-baseline gap-3 mb-1">
-                <code class="text-lg font-mono font-bold text-[var(--text-primary)]">{color.name}</code>
-                <span class="text-sm text-[var(--text-muted)]">{color.variable}</span>
-              </div>
-              <p class="text-[var(--text-secondary)] text-sm">{color.description}</p>
-              <div class="mt-2 flex gap-2">
-                <code class="text-xs bg-[var(--surface-2)] px-2 py-1 rounded text-[var(--text-muted)]">bg-{color.name}</code>
-                <code class="text-xs bg-[var(--surface-2)] px-2 py-1 rounded text-[var(--text-muted)]">text-{color.name}</code>
-                <code class="text-xs bg-[var(--surface-2)] px-2 py-1 rounded text-[var(--text-muted)]">border-{color.name}</code>
-              </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {primitiveScales.map((scale) => (
+          <div class="bg-[var(--surface-1)] rounded-lg border border-[var(--border-default)] p-4">
+            <h3 class="text-lg font-bold text-[var(--text-primary)] mb-1">{scale.name}</h3>
+            <p class="text-[var(--text-secondary)] text-sm">{scale.description}</p>
+            <div class="mt-3 text-xs text-[var(--text-muted)] font-mono">
+              --color-{scale.name}-50 to --color-{scale.name}-950
             </div>
           </div>
         ))}
       </div>
     </section>
 
-    <!-- Text Colors -->
+    <!-- BrightGreen Scale -->
     <section>
-      <h2 class="text-2xl font-bold text-[var(--text-primary)] mb-4">Text Colors</h2>
-      <p class="text-[var(--text-secondary)] mb-6">Semantic text colors for content hierarchy. Use with <code class="bg-[var(--surface-2)] px-1 rounded">text-text-*</code></p>
+      <h2 class="text-2xl font-bold text-[var(--text-primary)] mb-4">BrightGreen Scale</h2>
+      <p class="text-[var(--text-secondary)] mb-6">Cool emerald greens for light mode surfaces and accents</p>
       
-      <div class="grid gap-4">
-        {textColors.map((color) => (
-          <div class="flex items-center gap-4 p-4 bg-[var(--surface-1)] rounded-lg border border-[var(--border-default)]">
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4">
+        {[50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950].map((shade) => (
+          <div class="bg-[var(--surface-1)] rounded-lg border border-[var(--border-default)] overflow-hidden">
             <div 
-              class="w-20 h-20 rounded-lg shadow-sm flex items-center justify-center text-2xl font-bold border border-[var(--border-subtle)]"
-              style={`background-color: var(--surface-0); color: var(${color.variable})`}
-            >
-              Aa
-            </div>
-            <div class="flex-1">
-              <div class="flex items-baseline gap-3 mb-1">
-                <code class="text-lg font-mono font-bold text-[var(--text-primary)]">{color.name}</code>
-                <span class="text-sm text-[var(--text-muted)]">{color.variable}</span>
-              </div>
-              <p class="text-[var(--text-secondary)] text-sm">{color.description}</p>
-              <div class="mt-2">
-                <code class="text-xs bg-[var(--surface-2)] px-2 py-1 rounded text-[var(--text-muted)]">text-{color.name}</code>
-              </div>
+              class="h-24 w-full"
+              style={`background-color: var(--color-brightGreen-${shade})`}
+            />
+            <div class="p-3 space-y-1">
+              <div class="text-sm font-mono font-bold text-[var(--text-primary)]">brightGreen-{shade}</div>
+              <div class="text-xs text-[var(--text-muted)] font-mono">--color-brightGreen-{shade}</div>
             </div>
           </div>
         ))}
       </div>
     </section>
 
-    <!-- Border Colors -->
+    <!-- DimGreen Scale -->
     <section>
-      <h2 class="text-2xl font-bold text-[var(--text-primary)] mb-4">Border Colors</h2>
-      <p class="text-[var(--text-secondary)] mb-6">Border colors for separation and definition. Use with <code class="bg-[var(--surface-2)] px-1 rounded">border-border-*</code></p>
+      <h2 class="text-2xl font-bold text-[var(--text-primary)] mb-4">DimGreen Scale</h2>
+      <p class="text-[var(--text-secondary)] mb-6">Muted emerald greens for dark mode surfaces and accents</p>
       
-      <div class="grid gap-4">
-        {borderColors.map((color) => (
-          <div class="flex items-center gap-4 p-4 bg-[var(--surface-1)] rounded-lg border border-[var(--border-default)]">
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4">
+        {[50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950].map((shade) => (
+          <div class="bg-[var(--surface-1)] rounded-lg border border-[var(--border-default)] overflow-hidden">
             <div 
-              class="w-20 h-20 rounded-lg shadow-sm"
-              style={`background-color: var(--surface-0); border: 4px solid var(${color.variable})`}
+              class="h-24 w-full"
+              style={`background-color: var(--color-dimGreen-${shade})`}
             />
-            <div class="flex-1">
-              <div class="flex items-baseline gap-3 mb-1">
-                <code class="text-lg font-mono font-bold text-[var(--text-primary)]">{color.name}</code>
-                <span class="text-sm text-[var(--text-muted)]">{color.variable}</span>
-              </div>
-              <p class="text-[var(--text-secondary)] text-sm">{color.description}</p>
-              <div class="mt-2">
-                <code class="text-xs bg-[var(--surface-2)] px-2 py-1 rounded text-[var(--text-muted)]">border-{color.name}</code>
-              </div>
+            <div class="p-3 space-y-1">
+              <div class="text-sm font-mono font-bold text-[var(--text-primary)]">dimGreen-{shade}</div>
+              <div class="text-xs text-[var(--text-muted)] font-mono">--color-dimGreen-{shade}</div>
             </div>
           </div>
         ))}
       </div>
     </section>
 
-    <!-- Accent Colors -->
+    <!-- Legal (Amber) Scale -->
     <section>
-      <h2 class="text-2xl font-bold text-[var(--text-primary)] mb-4">Accent Colors</h2>
-      <p class="text-[var(--text-secondary)] mb-6">Accent colors for actions, states, and emphasis. Use with <code class="bg-[var(--surface-2)] px-1 rounded">text-accent-*</code> or <code class="bg-[var(--surface-2)] px-1 rounded">bg-accent-*</code></p>
+      <h2 class="text-2xl font-bold text-[var(--text-primary)] mb-4">Legal Scale</h2>
+      <p class="text-[var(--text-secondary)] mb-6">Amber/warning colors for legal notices and warnings</p>
       
-      <div class="grid gap-4">
-        {accentColors.map((color) => (
-          <div class="flex items-center gap-4 p-4 bg-[var(--surface-1)] rounded-lg border border-[var(--border-default)]">
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4">
+        {[50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950].map((shade) => (
+          <div class="bg-[var(--surface-1)] rounded-lg border border-[var(--border-default)] overflow-hidden">
             <div 
-              class="w-20 h-20 rounded-lg shadow-sm"
-              style={`background-color: var(${color.variable})`}
+              class="h-24 w-full"
+              style={`background-color: var(--color-legal-${shade})`}
             />
-            <div class="flex-1">
-              <div class="flex items-baseline gap-3 mb-1">
-                <code class="text-lg font-mono font-bold text-[var(--text-primary)]">{color.name}</code>
-                <span class="text-sm text-[var(--text-muted)]">{color.variable}</span>
-              </div>
-              <p class="text-[var(--text-secondary)] text-sm">{color.description}</p>
-              <div class="mt-2 flex gap-2">
-                <code class="text-xs bg-[var(--surface-2)] px-2 py-1 rounded text-[var(--text-muted)]">bg-{color.name}</code>
-                <code class="text-xs bg-[var(--surface-2)] px-2 py-1 rounded text-[var(--text-muted)]">text-{color.name}</code>
-              </div>
+            <div class="p-3 space-y-1">
+              <div class="text-sm font-mono font-bold text-[var(--text-primary)]">legal-{shade}</div>
+              <div class="text-xs text-[var(--text-muted)] font-mono">--color-legal-{shade}</div>
             </div>
           </div>
         ))}
@@ -194,54 +104,25 @@ const componentTokens = [
         <div class="space-y-4">
           <h3 class="font-bold text-[var(--text-secondary)]">Tailwind Classes</h3>
           <div class="bg-[var(--surface-1)] p-4 rounded-lg font-mono text-sm text-[var(--text-primary)] space-y-2 border border-[var(--border-default)]">
-            <div>bg-surface-0</div>
-            <div>bg-surface-1</div>
-            <div>text-text-primary</div>
-            <div>text-text-secondary</div>
-            <div>border-border-default</div>
-            <div>bg-accent-brand</div>
+            <div>bg-bright-500</div>
+            <div>bg-dim-300</div>
+            <div>text-legal-600</div>
+            <div>bg-brightGreen-500</div>
+            <div>text-dimGreen-400</div>
           </div>
         </div>
         
         <div class="space-y-4">
           <h3 class="font-bold text-[var(--text-secondary)]">CSS Variables</h3>
           <div class="bg-[var(--surface-1)] p-4 rounded-lg font-mono text-sm text-[var(--text-primary)] space-y-2 border border-[var(--border-default)]">
-            <div>var(--surface-0)</div>
-            <div>var(--surface-1)</div>
-            <div>var(--text-primary)</div>
-            <div>var(--text-secondary)</div>
-            <div>var(--border-default)</div>
-            <div>var(--accent-brand)</div>
+            <div>var(--color-bright-500)</div>
+            <div>var(--color-dim-300)</div>
+            <div>var(--color-legal-600)</div>
+            <div>var(--color-brightGreen-500)</div>
+            <div>var(--color-dimGreen-400)</div>
           </div>
         </div>
       </div>
     </section>
   </div>
-
-  <script>
-    const toggleBtn = document.getElementById('theme-toggle');
-    const themeLabel = document.getElementById('current-theme');
-    const html = document.documentElement;
-    
-    // Check for saved theme preference or default to 'light'
-    const getTheme = () => {
-      if (html.classList.contains('dark')) return 'dark';
-      return 'light';
-    };
-    
-    const updateLabel = () => {
-      const current = getTheme();
-      if (themeLabel) {
-        themeLabel.textContent = current === 'dark' ? 'Dark' : 'Light';
-      }
-    };
-    
-    toggleBtn?.addEventListener('click', () => {
-      html.classList.toggle('dark');
-      updateLabel();
-    });
-    
-    // Initialize label
-    updateLabel();
-  </script>
 </DesignSystemLayout>
