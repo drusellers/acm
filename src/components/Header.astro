@@ -8,7 +8,7 @@ const width = (79/10) * height
 <div class="flex justify-between">
     <div class="flex flex-col">
         <h1 class="text-3xl text-blue-300">
-            <a href="/" class="text-black dark:text-white" alt="A Curious Mind Logo">
+            <a href="/" class="text-black dark:text-white">
                  <Logo height={height} width={width} />
                 <!--A Curious Mind-->
             </a>
@@ -24,7 +24,7 @@ const width = (79/10) * height
     <div class="flex space-x-2 items-center">
         <button 
             id="theme-toggle"
-            class="p-2 rounded-md text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--surface-1)] transition-colors"
+            class="p-2 rounded-md text-(--text-secondary) hover:text-(--text-primary) hover:bg-(--surface-1) transition-colors"
             aria-label="Toggle dark mode"
         >
             <svg class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24">

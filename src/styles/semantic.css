@@ -33,4 +33,23 @@
     --surface-3: var(--surface-context-dark-3);
     --surface-4: var(--surface-context-dark-4);
   }
+
+  /* text */
+  :root {
+    --text-primary-light: var(--color-figment-600);
+    --text-secondary-light: var(--color-figment-600);
+
+    --text-primary-dark: var(--color-underthought-50);
+    --text-secondary-dark: var(--color-underthought-50);
+
+    --text-primary: var(--text-primary-light);
+    --text-secondary: var(--text-secondary-light);
+    --text-muted: var(--text-primary-light);
+  }
+
+  .dark {
+    --text-primary: var(--text-primary-dark);
+    --text-secondary: var(--text-secondary-dark);
+    --text-muted: var(--text-primary-dark);
+  }
 }
