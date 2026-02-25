@@ -1,0 +1,36 @@
+/* LAYER 2: SEMANTIC TOKENS */
+/* Semantic color definitions and surface context values */
+
+@layer base {
+  :root {
+    /* SURFACE CONTEXT - Light Mode */
+    --surface-context-light-0: var(--color-figment-50);  /* Background - base */
+    --surface-context-light-1: var(--color-figment-100); /* Elevated */
+    --surface-context-light-2: var(--color-figment-300); /* Higher elevation */
+    --surface-context-light-3: var(--color-figment-200); /* Subtle accent */
+    --surface-context-light-4: var(--color-figment-300); /* Card backgrounds */
+
+    /* SURFACE CONTEXT - Dark Mode */
+    --surface-context-dark-0: var(--color-underthought-950);   /* Background - base */
+    --surface-context-dark-1: var(--color-underthought-800);   /* Elevated */
+    --surface-context-dark-2: var(--color-underthought-600);   /* Higher elevation */
+    --surface-context-dark-3: var(--color-underthought-400);   /* Subtle accent */
+    --surface-context-dark-4: var(--color-underthought-200);   /* Card backgrounds */
+
+    /* SURFACE VALUES - Semantic mapping */
+    --surface-0: var(--surface-context-light-0);
+    --surface-1: var(--surface-context-light-1);
+    --surface-2: var(--surface-context-light-2);
+    --surface-3: var(--surface-context-light-3);
+    --surface-4: var(--surface-context-light-4);
+  }
+
+  /* Dark theme overrides - apply context values */
+  .dark {
+    --surface-0: var(--surface-context-dark-0);
+    --surface-1: var(--surface-context-dark-1);
+    --surface-2: var(--surface-context-dark-2);
+    --surface-3: var(--surface-context-dark-3);
+    --surface-4: var(--surface-context-dark-4);
+  }
+}

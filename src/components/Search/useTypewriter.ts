@@ -5,7 +5,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 export type TypeStep =
 	| { op: "type"; text: string }
 	| { op: "pause"; ms?: number }
-	| { op: "backspace"; n?: number }
+	| { op: "backspace"; n?: number; text?: string }
 	| { op: "backspaceWord" }
 	| { op: "clear" };
 
@@ -294,9 +294,10 @@ export function useTypewriter({
 			}
 			case "backspace": {
 				// n defaults to 1
-				const n = Math.max(0, step.n ?? 1);
+				const { n, text } = step;
+				const nn = Math.max(0, (text?.length || n) ?? 1);
 				stepInProgressRef.current = true;
-				runBackspace(n, backspaceDelay, next);
+				runBackspace(nn, backspaceDelay, next);
 				break;
 			}
 			case "backspaceWord":

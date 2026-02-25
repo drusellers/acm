@@ -1,6 +1,7 @@
 /* LAYER 4: COMPONENT TOKENS */
 /* Maps semantic tokens to component-specific variables */
 
+
 @layer components {
   :root {
     /* Button Component */
@@ -30,7 +31,7 @@
     --nav-text-active: var(--text-primary);
 
     /* Link */
-    --link-color: var(--accent-brand);
+    --link-color: var(--color-blue-600);
     --link-hover: var(--color-blue-700);
 
     /* Code/Preformatted */
@@ -42,6 +43,7 @@
   /* Dark theme overrides for component tokens */
   .dark {
     --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    --link-color: var(--color-blue-300);
     --link-hover: var(--color-blue-300);
   }
 
@@ -54,5 +56,18 @@
   .dark {
     --action-primary-bg: var(--color-blue-700);
     --action-primary-text: var(--color-blue-300);
+  }
+
+
+  /* links: https://frontendmasters.com/blog/chilled-out-text-underlines/ */
+  a {
+    color: var(--link-color);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  a:not(:is(:hover, :focus)) {
+    text-decoration-color:
+            color-mix(in srgb, currentColor, transparent 75%);
   }
 }

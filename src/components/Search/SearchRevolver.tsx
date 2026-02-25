@@ -7,20 +7,26 @@ type Props = {
 	showControls?: boolean;
 };
 
+const finalPause = 800;
+
 const workoutScript: TypeStep[] = [
 	{ op: "clear" },
 	{ op: "type", text: "best strength program for runners" },
-	{ op: "pause", ms: 1600 },
-	{ op: "backspace", n: 8 }, // remove "runners"
+	{ op: "pause", ms: 600 },
+	{ op: "backspaceWord" }, // remove "runners"
+	{ op: "pause", ms: 600 },
 	{ op: "type", text: " sprinters" },
 	{ op: "pause", ms: 700 },
 	{ op: "backspaceWord" },
-	{ op: "type", text: " masters athletes 40+" },
+	{ op: "type", text: " masters athletes" },
+	{ op: "pause", ms: 800 },
+	{ op: "type", text: " 40+" },
 	{ op: "pause", ms: 800 },
 	{ op: "backspace", n: 4 }, // remove " 40+"
 	{ op: "type", text: " 45+" },
-	{ op: "pause", ms: 800 },
+	{ op: "pause", ms: finalPause },
 ];
+
 const clothingScript: TypeStep[] = [
 	{ op: "clear" },
 	{ op: "type", text: "can I fit in a LG?" },
@@ -28,16 +34,34 @@ const clothingScript: TypeStep[] = [
 	{ op: "backspace", n: 3 }, // remove "LG?"
 	{ op: "pause", ms: 600 },
 	{ op: "type", text: "XL?" },
-	{ op: "pause", ms: 600 },
+	{ op: "pause", ms: finalPause },
 ];
 const mayorSearch: TypeStep[] = [
 	{ op: "clear" },
 	{ op: "type", text: "who is the governor of austin?" },
 	{ op: "pause", ms: 600 },
-	{ op: "backspace", n: 7 }, // remove "austin?"
+	{ op: "backspace", text: "austin?" },
 	{ op: "pause", ms: 600 },
 	{ op: "type", text: "texas?" },
+	{ op: "pause", ms: finalPause },
+];
+// Who works at Google in my network?
+// Who are my connections in San Francisco?
+const networkSearch: TypeStep[] = [
+	{ op: "clear" },
+	{ op: "type", text: "who in my network works at google?" },
 	{ op: "pause", ms: 600 },
+	{ op: "backspace", text: "at google?" },
+	{ op: "pause", ms: 600 },
+	{ op: "type", text: "in san fran?" },
+	{ op: "pause", ms: finalPause },
+];
+
+const steps = [
+	...workoutScript,
+	...clothingScript,
+	...mayorSearch,
+	...networkSearch,
 ];
 
 export default function SearchRevolver({
@@ -45,10 +69,7 @@ export default function SearchRevolver({
 	autostart = true,
 	showControls = true,
 }: Props) {
-	const script = useMemo<TypeStep[]>(
-		() => [...workoutScript, ...clothingScript, ...mayorSearch],
-		[],
-	);
+	const script = useMemo<TypeStep[]>(() => steps, []);
 
 	const { text, isRunning, restart, start, stop } = useTypewriter({
 		script,
