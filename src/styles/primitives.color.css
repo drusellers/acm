@@ -1,29 +1,30 @@
 @theme {
   /* figment - light theme color scale (slate palette) */
-  --color-figment-50: #f8fafc;
-  --color-figment-100: #f1f5f9;
-  --color-figment-200: #e2e8f0;
-  --color-figment-300: #cbd5e1;
-  --color-figment-400: #94a3b8;
-  --color-figment-500: #64748b;
-  --color-figment-600: #475569;
-  --color-figment-700: #334155;
-  --color-figment-800: #1e293b;
-  --color-figment-900: #0f172a;
-  --color-figment-950: #020617;
+  --color-figment-50: oklch(98.415% 0.0034 247.858);
+  --color-figment-100: oklch(96.826% 0.0069 247.896);
+  --color-figment-200: oklch(92.876% 0.0126 255.508);
+  --color-figment-300: oklch(86.898% 0.0198 252.894);
+  --color-figment-400: oklch(71.067% 0.0351 256.788);
+  --color-figment-500: oklch(55.439% 0.0407 257.417);
+  --color-figment-600: oklch(44.553% 0.0374 257.281);
+  --color-figment-700: oklch(37.170% 0.0392 257.287);
+  --color-figment-800: oklch(27.950% 0.0368 260.031);
+  --color-figment-900: oklch(20.768% 0.0398 265.755);
+  --color-figment-950: oklch(12.880% 0.0406 264.695);
 
   /* underthought - dark theme color scale */
-  --color-underthought-50: #e8f4fd;
-  --color-underthought-100: #b8dffa;
-  --color-underthought-200: #88caf7;
-  --color-underthought-300: #58b5f4;
-  --color-underthought-400: #28a0f1;
-  --color-underthought-500: #0f8de0;
-  --color-underthought-600: #0c6eb0;
-  --color-underthought-700: #094f80;
-  --color-underthought-800: #063050;
-  --color-underthought-900: #040e18;
-  --color-underthought-950: #030b13;
+  --color-underthought-50: oklch(96.082% 0.0176 239.992);
+  --color-underthought-100: oklch(88.458% 0.0554 238.479);
+  --color-underthought-200: oklch(81.127% 0.0925 239.213);
+  --color-underthought-300: oklch(74.258% 0.1270 241.035);
+  --color-underthought-400: oklch(68.067% 0.1560 244.458);
+  --color-underthought-500: oklch(62.426% 0.1580 246.365);
+  --color-underthought-600: oklch(52.225% 0.1313 246.417);
+  --color-underthought-700: oklch(41.503% 0.1031 246.573);
+  --color-underthought-800: oklch(30.039% 0.0727 247.028);
+  --color-underthought-900: oklch(18.995% 0.0268 244.947);
+  --color-underthought-950: oklch(14.447% 0.0234 243.486);
+  --color-underthought-1000: oklch(10% 0.0200 243.5);
 
 
   /* legal - amber warning palette */

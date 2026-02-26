@@ -5,15 +5,15 @@
   :root {
     /* SURFACE CONTEXT - Light Mode */
     --surface-context-light-0: var(--color-figment-50);  /* Background - base */
-    --surface-context-light-1: var(--color-figment-100); /* Elevated */
+    --surface-context-light-1: var(--color-figment-200); /* Elevated */
     --surface-context-light-2: var(--color-figment-300); /* Higher elevation */
-    --surface-context-light-3: var(--color-figment-200); /* Subtle accent */
-    --surface-context-light-4: var(--color-figment-300); /* Card backgrounds */
+    --surface-context-light-3: var(--color-figment-400); /* Subtle accent */
+    --surface-context-light-4: var(--color-figment-500); /* Card backgrounds */
 
     /* SURFACE CONTEXT - Dark Mode */
-    --surface-context-dark-0: var(--color-underthought-950);   /* Background - base */
-    --surface-context-dark-1: var(--color-underthought-800);   /* Elevated */
-    --surface-context-dark-2: var(--color-underthought-600);   /* Higher elevation */
+    --surface-context-dark-0: var(--color-underthought-1000);  /* Background - base */
+    --surface-context-dark-1: var(--color-underthought-900);   /* Elevated */
+    --surface-context-dark-2: var(--color-underthought-800);   /* Higher elevation */
     --surface-context-dark-3: var(--color-underthought-400);   /* Subtle accent */
     --surface-context-dark-4: var(--color-underthought-200);   /* Card backgrounds */
 
@@ -36,20 +36,22 @@
 
   /* text */
   :root {
-    --text-primary-light: var(--color-figment-600);
-    --text-secondary-light: var(--color-figment-600);
+    --text-primary-light: var(--color-figment-700);
+    --text-secondary-light: var(--color-figment-700);
+    --text-muted-light: var(--color-figment-600);
 
-    --text-primary-dark: var(--color-underthought-50);
-    --text-secondary-dark: var(--color-underthought-50);
+    --text-primary-dark: var(--color-underthought-200);
+    --text-secondary-dark: var(--color-underthought-300);
+    --text-muted-dark: var(--color-underthought-400);
 
     --text-primary: var(--text-primary-light);
     --text-secondary: var(--text-secondary-light);
-    --text-muted: var(--text-primary-light);
+    --text-muted: var(--text-muted-light);
   }
 
   .dark {
     --text-primary: var(--text-primary-dark);
     --text-secondary: var(--text-secondary-dark);
-    --text-muted: var(--text-primary-dark);
+    --text-muted: var(--text-muted-dark);
   }
 }

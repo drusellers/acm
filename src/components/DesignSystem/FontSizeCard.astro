@@ -1,0 +1,26 @@
+---
+interface Props {
+  name: string;
+  fontFamily: string;
+  size: string;
+  lineHeight: string;
+  sampleText: string;
+}
+const { name, fontFamily, size, lineHeight, sampleText } = Astro.props;
+---
+<div class="bg-(--surface-1) rounded-lg border border-(--border-default) p-6">
+    <div class="flex items-baseline gap-3 mb-2">
+        <code class="text-sm font-mono text-(--text-muted) bg-(--surface-2) px-2 py-1 rounded">
+          {name}
+        </code>
+        <span class="text-xs text-(--text-muted)">
+                  {size} / {lineHeight}
+                </span>
+    </div>
+    <p
+            class={`text-(--text-primary) ${name}`}
+            style={`font-family: ${fontFamily}};`}
+    >
+      {sampleText}
+    </p>
+</div>

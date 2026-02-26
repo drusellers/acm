@@ -97,7 +97,7 @@ it("respects reduced motion by typing instantly", async () => {
 
 	// Mock matchMedia for reduced motion
 	const original = window.matchMedia;
-	// @ts-expect-error - test mock
+
 	window.matchMedia = vi.fn().mockReturnValue({ matches: true });
 
 	const script: TypeStep[] = [{ op: "type", text: "xyz" }];
@@ -119,4 +119,3 @@ it("respects reduced motion by typing instantly", async () => {
 	// restore
 	window.matchMedia = original;
 });
-})

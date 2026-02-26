@@ -1,5 +1,7 @@
 ---
 import DesignSystemLayout from "../../layouts/DesignSystem.astro";
+import FontCard from "../../components/DesignSystem/FontCard.astro";
+import FontSizeCard from "../../components/DesignSystem/FontSizeCard.astro";
 
 // Tailwind default font sizes
 const fontSizes = [
@@ -37,98 +39,41 @@ const sampleText = "The quick brown fox jumps over the lazy dog.";
 <DesignSystemLayout seo={{ title: "Design System - Typography" }}>
   <div class="space-y-12">
     <!-- Page Description -->
-    <p class="text-[var(--text-secondary)] text-lg">Typography reference and guidelines</p>
+    <p class="text-(--text-secondary) text-lg">Typography reference and guidelines</p>
 
     <!-- Font Families Overview -->
     <section>
-      <h2 class="text-2xl font-bold text-[var(--text-primary)] mb-6">Font Families</h2>
+      <h2 class="text-2xl font-bold text-(--text-primary) mb-6">Font Families</h2>
       
       <div class="grid md:grid-cols-2 gap-8">
         <!-- Outfit Variable (Headings) -->
-        <div class="bg-[var(--surface-1)] rounded-lg border border-[var(--border-default)] p-6">
-          <div class="mb-4">
-            <h3 class="text-xl font-bold text-[var(--text-primary)] mb-1" style="font-family: 'Outfit Variable', sans-serif;">Outfit Variable</h3>
-            <p class="text-[var(--text-muted)] text-sm">Headings font</p>
-          </div>
-          <div class="space-y-4">
-            <p class="text-4xl" style="font-family: 'Outfit Variable', sans-serif;">Aa</p>
-            <div class="flex gap-4 text-sm text-[var(--text-secondary)]">
-              <span>Weights: 100-900</span>
-            </div>
-            <code class="block text-xs bg-[var(--surface-2)] px-3 py-2 rounded text-[var(--text-muted)]">
-              font-family: 'Outfit Variable', sans-serif;
-            </code>
-          </div>
-        </div>
+          <FontCard title="Body text font" fontFamily="'Outfit Variable', sans-serif" weights="100-900" />
+
 
         <!-- Open Sans Variable (Body) -->
-        <div class="bg-[var(--surface-1)] rounded-lg border border-[var(--border-default)] p-6">
-          <div class="mb-4">
-            <h3 class="text-xl font-bold text-[var(--text-primary)] mb-1" style="font-family: 'Open Sans Variable', sans-serif;">Open Sans Variable</h3>
-            <p class="text-[var(--text-muted)] text-sm">Body text font</p>
-          </div>
-          <div class="space-y-4">
-            <p class="text-4xl" style="font-family: 'Open Sans Variable', sans-serif;">Aa</p>
-            <div class="flex gap-4 text-sm text-[var(--text-secondary)]">
-              <span>Weights: 300-800</span>
-            </div>
-            <code class="block text-xs bg-[var(--surface-2)] px-3 py-2 rounded text-[var(--text-muted)]">
-              font-family: 'Open Sans Variable', sans-serif;
-            </code>
-          </div>
-        </div>
+          <FontCard title="Headings font" fontFamily="'Open Sans Variable', sans-serif" weights="300-800" />
       </div>
     </section>
 
     <!-- Font Sizes Side by Side -->
     <section>
-      <h2 class="text-2xl font-bold text-[var(--text-primary)] mb-4">Font Sizes</h2>
-      <p class="text-[var(--text-secondary)] mb-6">Compare font sizes side by side</p>
+      <h2 class="text-2xl font-bold text-(--text-primary) mb-4">Font Sizes</h2>
+      <p class="text-(--text-secondary) mb-6">Compare font sizes side by side</p>
       
       <div class="grid md:grid-cols-2 gap-8">
         <!-- Column 1: Outfit Variable -->
         <div class="space-y-6">
-          <h3 class="text-lg font-medium text-[var(--text-primary)] border-b border-[var(--border-default)] pb-2">Outfit Variable</h3>
+          <h3 class="text-lg font-medium text-(--text-primary) border-b border-(--border-default) pb-2">Outfit Variable</h3>
           {fontSizes.map((size) => (
-            <div class="bg-[var(--surface-1)] rounded-lg border border-[var(--border-default)] p-6">
-              <div class="flex items-baseline gap-3 mb-2">
-                <code class="text-sm font-mono text-[var(--text-muted)] bg-[var(--surface-2)] px-2 py-1 rounded">
-                  {size.name}
-                </code>
-                <span class="text-xs text-[var(--text-muted)]">
-                  {size.size} / {size.lineHeight}
-                </span>
-              </div>
-              <p 
-                class={size.name}
-                style="font-family: 'Outfit Variable', sans-serif;"
-              >
-                {sampleText}
-              </p>
-            </div>
+              <FontSizeCard name={size.name} size={size.size} lineHeight={size.lineHeight} fontFamily="'Outfit Variable', sans-serif" sampleText={sampleText} />
           ))}
         </div>
         
         <!-- Column 2: Open Sans Variable -->
         <div class="space-y-6">
-          <h3 class="text-lg font-medium text-[var(--text-primary)] border-b border-[var(--border-default)] pb-2">Open Sans Variable</h3>
+          <h3 class="text-lg font-medium text-(--text-primary) border-b border-(--border-default) pb-2">Open Sans Variable</h3>
           {fontSizes.map((size) => (
-            <div class="bg-[var(--surface-1)] rounded-lg border border-[var(--border-default)] p-6">
-              <div class="flex items-baseline gap-3 mb-2">
-                <code class="text-sm font-mono text-[var(--text-muted)] bg-[var(--surface-2)] px-2 py-1 rounded">
-                  {size.name}
-                </code>
-                <span class="text-xs text-[var(--text-muted)]">
-                  {size.size} / {size.lineHeight}
-                </span>
-              </div>
-              <p 
-                class={size.name}
-                style="font-family: 'Open Sans Variable', sans-serif;"
-              >
-                {sampleText}
-              </p>
-            </div>
+                  <FontSizeCard name={size.name} size={size.size} lineHeight={size.lineHeight} fontFamily="'Open Sans Variable', sans-serif" sampleText={sampleText} />
           ))}
         </div>
       </div>
@@ -136,12 +81,12 @@ const sampleText = "The quick brown fox jumps over the lazy dog.";
 
     <!-- Usage Examples -->
     <section>
-      <h2 class="text-2xl font-bold text-[var(--text-primary)] mb-6">Usage Examples</h2>
+      <h2 class="text-2xl font-bold text-(--text-primary) mb-6">Usage Examples</h2>
       
       <div class="grid md:grid-cols-2 gap-6">
         <div class="space-y-4">
-          <h3 class="font-bold text-[var(--text-secondary)]">Tailwind Classes</h3>
-          <div class="bg-[var(--surface-2)] p-4 rounded-lg font-mono text-sm text-[var(--text-primary)] space-y-2">
+          <h3 class="font-bold text-(--text-secondary)">Tailwind Classes</h3>
+          <div class="bg-(--surface-2) p-4 rounded-lg font-mono text-sm text-(--text-primary) space-y-2">
             <div>text-4xl font-bold</div>
             <div>text-lg font-medium</div>
             <div>text-sm font-normal</div>
@@ -150,17 +95,17 @@ const sampleText = "The quick brown fox jumps over the lazy dog.";
         </div>
         
         <div class="space-y-4">
-          <h3 class="font-bold text-[var(--text-secondary)]">CSS Custom Properties</h3>
-          <div class="bg-[var(--surface-2)] p-4 rounded-lg font-mono text-sm text-[var(--text-primary)] space-y-2">
+          <h3 class="font-bold text-(--text-secondary)">CSS Custom Properties</h3>
+          <div class="bg-(--surface-2) p-4 rounded-lg font-mono text-sm text-(--text-primary) space-y-2">
             <div>font-family: var(--font-headings);</div>
             <div>font-family: var(--font-sans);</div>
           </div>
         </div>
       </div>
 
-      <div class="mt-8 bg-[var(--surface-1)] rounded-lg border border-[var(--border-default)] p-6">
-        <h3 class="font-bold text-[var(--text-primary)] mb-4">Theme Configuration</h3>
-        <pre class="bg-[var(--surface-2)] p-4 rounded-lg overflow-x-auto text-sm"><code class="text-[var(--text-primary)]">@theme {'{'}
+      <div class="mt-8 bg-(--surface-1) rounded-lg border border-(--border-default) p-6">
+        <h3 class="font-bold text-(--text-primary) mb-4">Theme Configuration</h3>
+        <pre class="bg-(--surface-2) p-4 rounded-lg overflow-x-auto text-sm"><code class="text-(--text-primary)">@theme {'{'}
   --font-sans: "Open Sans Variable";
   --font-headings: "Outfit Variable";
 {'}'}</code></pre>

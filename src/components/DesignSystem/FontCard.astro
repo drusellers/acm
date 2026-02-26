@@ -1,0 +1,24 @@
+---
+interface Props {
+  title: string;
+  fontFamily: string;
+  weights: string;
+}
+
+const { title, fontFamily, weights } = Astro.props;
+---
+<div class="bg-(--surface-1) rounded-lg border border-(--border-default) p-6">
+    <div class="mb-4">
+        <h3 class="text-xl font-bold text-(--text-primary) mb-1" style="font-family: 'Outfit Variable', sans-serif;">Outfit Variable</h3>
+        <p class="text-(--text-muted) text-sm">{title}</p>
+    </div>
+    <div class="space-y-4">
+        <p class="text-4xl text-(--text-primary)" style={`font-family: ${fontFamily};`}>Aa</p>
+        <div class="flex gap-4 text-sm text-(--text-secondary)">
+            <span>Weights: {weights}</span>
+        </div>
+        <code class="block text-xs bg-(--surface-2) px-3 py-2 rounded text-(--text-muted)">
+            font-family: {fontFamily};
+        </code>
+    </div>
+</div>

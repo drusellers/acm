@@ -3,14 +3,14 @@ import { frontmatter as fm } from "../../content/search-focus.md";
 // It might not be a sprint, but it can be a 5k.
 ---
 <div class="flex flex-col gap-y-4">
-    <h2 class="text-2xl font-semibold text-(--text-primary)">
+    <h2 class="text-2xl font-semibold text-(--text-muted)">
         { fm.positioning.title }
     </h2>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-x-8">
         { fm.positioning.bits.map((i: { headline: string, copy: string }) => {
             return (<div class="flex flex-col gap-y-4">
                         <h3 class="text-xl text-(--text-primary)">{i.headline}</h3>
-                        <p class="text-(--text-secondary)">
+                        <p class="prose dark:prose-invert">
                             {i.copy}
                         </p>
                     </div>)
