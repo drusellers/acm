@@ -1,0 +1,30 @@
+# robots.txt for https://acuriousmind.com/
+
+User-agent: *
+Allow: /
+Allow: /posts/
+Allow: /projects/
+Allow: /glossary/
+Allow: /privacy
+Disallow: /old
+Disallow: /404
+
+User-agent: GPTBot
+Allow: /
+Disallow: /old
+Disallow: /404
+
+User-agent: ClaudeBot
+Allow: /
+Disallow: /old
+Disallow: /404
+
+User-agent: PerplexityBot
+Allow: /
+Disallow: /old
+Disallow: /404
+
+User-agent: CCBot
+Allow: /
+Disallow: /old
+Disallow: /404

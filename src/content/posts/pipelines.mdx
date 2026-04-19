@@ -1,5 +1,12 @@
 ---
-title: Pipelines
+title: "Pipelines"
+published: false
+publishedOn: "2026-04-19"
+seo:
+  title: "Search Pipelines"
+excerpt:
+  eyebrow: "search architecture"
+  tease: "A practical walkthrough of indexing pipelines, from change capture and denormalization to canonicalization and freshness."
 pipeline: |
   flowchart LR
     DB[Your Database] --> ES[Search Engine]
@@ -18,13 +25,13 @@ expanded_pipeline: |
     MAP --> ES
 ---
 
-import Mermaid from '../components/Mermaid.astro'
+import Mermaid from "../../components/Mermaid.astro";
 
 # Search Pipelines
 
 ## Indexing Pipelines
 
-<Mermaid client:load content={frontmatter.pipeline} />
+<Mermaid content={frontmatter.pipeline} />
 
 The arrow above is doing a lot of work
 
@@ -57,6 +64,7 @@ schema:
   sku: keyword
   name: text
 ```
+
 so your mapping would be
 
 ```python
@@ -125,6 +133,6 @@ direct how search will interact with it.
 if you are working with 1st party data, this may not be a big step that you need. but when working with data from
 3rd parties, or from teams where you can't effect change you may need to process the data into a standard shape.
 
-<Mermaid client:load content={frontmatter.expanded_pipeline} />
+<Mermaid content={frontmatter.expanded_pipeline} />
 
 ## Query Pipelines

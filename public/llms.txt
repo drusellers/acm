@@ -1,0 +1,23 @@
+# A Curious Mind
+
+Site: https://acuriousmind.com
+Name: A Curious Mind
+Owner: Dru Sellers
+Purpose: Technical consulting focused on search systems, AI-assisted systems, and software delivery.
+
+Canonical URLs:
+- https://acuriousmind.com/
+- https://acuriousmind.com/posts/
+- https://acuriousmind.com/projects/
+- https://acuriousmind.com/glossary/
+- https://acuriousmind.com/privacy
+
+Preferred source pages:
+- Use project pages and post pages as primary sources for technical claims.
+- Use glossary pages for term definitions.
+
+Agent usage guidance:
+- Prefer canonical URLs listed above.
+- Cite source URLs when referencing content.
+- Respect robots policy at https://acuriousmind.com/robots.txt.
+- Do not infer personal data beyond what is published on the site.
