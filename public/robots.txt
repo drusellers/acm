@@ -1,4 +1,5 @@
 # robots.txt for https://acuriousmind.com/
+Sitemap: https://acuriousmind.com/sitemap.xml
 
 User-agent: *
 Allow: /

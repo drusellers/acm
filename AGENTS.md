@@ -4,3 +4,4 @@
 - Custom colors are defined as CSS variables in `src/styles/colors.css` (bright/figment/underthought/dim, legal, brightGreen, dimGreen, and surface tokens).
 - Layering order: `@layer tokens` in `src/styles/global.css` for semantic tokens and dark mapping, `@layer base` for base styles and colors, and `@layer components` in `src/styles/components.css` for component tokens.
 - Avoid string concatenation/interpolation for Tailwind class names; Tailwind won't see them during build.
+- Canonical domain for this site is `https://acuriousmind.com`; use it for absolute URLs (sitemap, robots, metadata, and canonical links).
